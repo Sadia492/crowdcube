@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 export default function Register() {
+  const { createUser, setUser } = useContext(authContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    const data = { name, email, photo, password };
+    createUser(email, password)
+      .then((result) => {
+        setUser(result.user);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="flex justify-center items-center">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <form className="card-body">
+        <form onSubmit={handleRegister} className="card-body">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>
@@ -47,6 +64,7 @@ export default function Register() {
             </label>
             <input
               type="password"
+              name="password"
               placeholder="password"
               className="input input-bordered"
               required
