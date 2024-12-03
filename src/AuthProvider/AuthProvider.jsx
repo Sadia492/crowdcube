@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth/web-extension";
 import React, { createContext, useEffect, useState } from "react";
@@ -30,7 +31,12 @@ export default function AuthProvider({ children }) {
 
   const googleProvider = new GoogleAuthProvider();
   const signInWithGoogle = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
+  };
+  const updateUser = (profileData) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, profileData);
   };
 
   useEffect(() => {
@@ -48,6 +54,7 @@ export default function AuthProvider({ children }) {
     signInUser,
     signOutUser,
     signInWithGoogle,
+    updateUser,
   };
   return (
     <authContext.Provider value={authInfo}>{children}</authContext.Provider>

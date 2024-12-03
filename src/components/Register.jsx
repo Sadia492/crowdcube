@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 
 export default function Register() {
-  const { createUser, setUser } = useContext(authContext);
+  const { createUser, setUser, updateUser } = useContext(authContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,7 +13,12 @@ export default function Register() {
     const data = { name, email, photo, password };
     createUser(email, password)
       .then((result) => {
+        console.log(result.user);
         setUser(result.user);
+
+        updateUser({ displayName: name, photoURL: photo }).then(() => {
+          console.log("profile updated");
+        });
       })
       .catch((error) => console.log(error));
   };
