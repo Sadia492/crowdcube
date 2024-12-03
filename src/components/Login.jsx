@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 
 export default function Login() {
-  const { signInUser, setUser } = useContext(authContext);
+  const { signInUser, setUser, signInWithGoogle } = useContext(authContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -14,14 +15,26 @@ export default function Login() {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        setUser(result.user);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+  const handleSignInWithGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        setUser(result.user);
+        console.log("sign In with google successful");
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="flex justify-center items-center">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div className="text-center btn btn-outline">
+          <button onClick={handleSignInWithGoogle}>Sign In With Google</button>
+        </div>
         <form onSubmit={handleLogin} className="card-body">
           <div className="form-control">
             <label className="label">
@@ -55,6 +68,12 @@ export default function Login() {
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
           </div>
+          <p className="text-center">
+            Don't have an account? Please{" "}
+            <Link className="text-red-500 font-bold" to="/register">
+              Register
+            </Link>
+          </p>
         </form>
       </div>
     </div>
