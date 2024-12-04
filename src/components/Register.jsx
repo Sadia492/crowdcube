@@ -3,7 +3,8 @@ import { authContext } from "../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 
 export default function Register() {
-  const { createUser, setUser, updateUser } = useContext(authContext);
+  const { createUser, setUser, updateUser, setLoading } =
+    useContext(authContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -21,7 +22,8 @@ export default function Register() {
           console.log("profile updated");
         });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
   };
 
   return (

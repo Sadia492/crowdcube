@@ -51,6 +51,7 @@ export default function AuthProvider({ children }) {
     user,
     setUser,
     loading,
+    setLoading,
     createUser,
     signInUser,
     signOutUser,
