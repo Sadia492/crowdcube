@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 
 export default function MyCampaign() {
   const { user } = useContext(authContext);
@@ -42,7 +43,9 @@ export default function MyCampaign() {
                   <td>{campaign.amount}</td>
                   <td>{campaign.deadline}</td>
                   <td>
-                    <button className="btn">Update</button>
+                    <Link to={`/updateCampaign/${campaign._id}`}>
+                      <button className="btn">Update</button>
+                    </Link>
                   </td>
                   <td>
                     <button className="btn">Delete</button>
