@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 export default function AllCampaign() {
-  const data = useLoaderData();
-  console.log(data);
+  const loadedData = useLoaderData();
+  const [data, setData] = useState(loadedData);
+  const handleSort = () => {
+    console.log("hello");
+    const sortedData = [...data].sort((a, b) => b.amount - a.amount);
+    setData(sortedData);
+  };
 
   return (
     <div>
       <h2>All Campaign</h2>
+      <button onClick={handleSort} className="btn btn-outline">
+        Sort
+      </button>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -30,7 +38,6 @@ export default function AllCampaign() {
                 <td>{campaign.amount}</td>
               </tr>
             ))}
-            {/* row 2 */}
           </tbody>
         </table>
       </div>

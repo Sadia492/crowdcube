@@ -9,15 +9,7 @@ export default function UpdateCampaign() {
   const { _id, image, title, description, type, amount, deadline } = loadedData;
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const image = form.image.value;
-    const title = form.title.value;
-    const description = form.description.value;
-    const type = form.type.value;
-    const amount = form.amount.value;
-    const deadline = form.deadline.value;
-    const email = form.email.value;
-    const name = form.name.value;
+
     const data = {
       image,
       title,
