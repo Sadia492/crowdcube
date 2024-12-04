@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Card({ campaign }) {
-  const { _id, image, title, description, type, amount, deadline } = campaign;
+  const { _id, image, title, description, type, amount, deadline } =
+    campaign || {};
   return (
     <div>
       <div className="card card-side bg-base-100 shadow-xl">
