@@ -123,7 +123,7 @@ export default function AddNewCampaign() {
             <input
               type="text"
               name="email"
-              value={user?.email}
+              value={user?.email || ""}
               placeholder=""
               className="input input-bordered"
               required
@@ -137,7 +137,7 @@ export default function AddNewCampaign() {
             <input
               type="text"
               name="name"
-              value={user?.displayName}
+              value={user?.displayName || ""}
               placeholder=""
               className="input input-bordered"
               required
