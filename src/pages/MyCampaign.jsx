@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function MyCampaign() {
   const { user } = useContext(authContext);
@@ -15,7 +16,39 @@ export default function MyCampaign() {
         });
     }
   }, [user]);
-  console.log(userCampaigns);
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/campaigns/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const remaining = userCampaigns.filter(
+                (campaign) => campaign._id !== id
+              );
+              setUserCampaigns(remaining);
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <h2>My campaigns</h2>
@@ -48,7 +81,12 @@ export default function MyCampaign() {
                     </Link>
                   </td>
                   <td>
-                    <button className="btn">Delete</button>
+                    <button
+                      onClick={() => handleDelete(campaign._id)}
+                      className="btn"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
