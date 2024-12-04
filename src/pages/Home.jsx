@@ -8,7 +8,6 @@ export default function Home() {
 
   return (
     <div>
-      Hello
       <Banner></Banner>
       <RunningCampaign runningCampaigns={runningCampaigns}></RunningCampaign>
     </div>
