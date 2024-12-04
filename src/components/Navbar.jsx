@@ -10,16 +10,16 @@ export default function Navbar() {
       <NavLink to="/">
         <li>Home</li>
       </NavLink>
-      <NavLink to="/all-campaign">
+      <NavLink to="/campaigns">
         <li>All Campaign</li>
       </NavLink>
-      <NavLink to="/add-new-campaign">
+      <NavLink to=" /addCampaign">
         <li>Add New Campaign</li>
       </NavLink>
-      <NavLink to="/my-campaign">
+      <NavLink to="/myCampaign">
         <li>My Campaign</li>
       </NavLink>
-      <NavLink to="/my-donation">
+      <NavLink to="/myDonations">
         <li>My Donation</li>
       </NavLink>
     </>
