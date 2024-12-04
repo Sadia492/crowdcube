@@ -10,10 +10,12 @@ import Register from "../components/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Details from "../components/Details";
 import UpdateCampaign from "../components/UpdateCampaign";
+import ErrorPage from "../components/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage></ErrorPage>,
     element: <MainLayout></MainLayout>,
     children: [
       {
