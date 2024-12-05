@@ -1,9 +1,20 @@
-import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
 
 export default function Navbar() {
   const { user, signOutUser } = useContext(authContext);
+  const { pathname } = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const links = (
     <>
@@ -26,8 +37,6 @@ export default function Navbar() {
   );
 
   const [isHovered, setIsHovered] = useState(false);
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
 
   const handleSignOut = () => {
     signOutUser().then(() => {
@@ -36,8 +45,16 @@ export default function Navbar() {
   };
 
   return (
-    <div className="w-11/12  mx-auto">
-      <div className="navbar">
+    <div
+      className={`${
+        pathname !== "/" ? "bg-primary/40 backdrop-blur-md" : ""
+      } w-full fixed top-0 z-10 transition-all duration-500 ease-in-out  ${
+        isScrolled
+          ? "bg-primary/40 backdrop-blur-md text-white"
+          : "bg-transparent "
+      }`}
+    >
+      <div className="navbar w-11/12  mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,18 +85,16 @@ export default function Navbar() {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal gap-6 px-1 font-semibold ">
+          <ul className="menu menu-horizontal text-white gap-6 px-1 font-semibold ">
             {links}
           </ul>
         </div>
         <div className="navbar-end">
           {user ? (
             <div className="relative" onClick={(e) => e.stopPropagation()}>
-              {/* User Photo */}
               <div
                 className="relative flex items-center"
                 onMouseEnter={() => setIsHovered(true)}
-                // onMouseLeave={() => setIsHovered(false)}
               >
                 <img
                   src={user.photoURL}
@@ -87,19 +102,18 @@ export default function Navbar() {
                   className="w-12 h-12 rounded-full cursor-pointer"
                 />
               </div>
-              {/* Hover Content */}
+
               {isHovered && (
                 <div
-                  className="absolute top-14 text-center right-0 bg-white border shadow-lg w-60 p-4 rounded-md z-10"
+                  className="absolute top-14 text-center right-0 bg-white border shadow-lg w-60 p-4 rounded-md z-50"
                   onClick={(e) => e.stopPropagation()} // Prevent click event from propagating
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
-                  {/* Display Name */}
                   <p className="font-bold mb-2">
                     {user.displayName || "Anonymous"}
                   </p>
-                  {/* Logout Button */}
+
                   <Link
                     onClick={handleSignOut}
                     to="/login"

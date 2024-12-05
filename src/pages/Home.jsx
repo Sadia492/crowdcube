@@ -22,9 +22,14 @@ export default function Home() {
 
   return (
     <div>
-      <button onClick={themeToggle} className="btn btn-outline">
-        Toggle to {theme === "light" ? "Dark" : "Light"} Theme
-      </button>
+      <div className="text-right pr-20 absolute right-0 z-10 top-20">
+        <input
+          onClick={themeToggle}
+          type="checkbox"
+          className="toggle toggle-warning"
+          defaultChecked
+        />
+      </div>
       <Banner></Banner>
       <RunningCampaign runningCampaigns={runningCampaigns}></RunningCampaign>
     </div>
