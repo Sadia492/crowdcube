@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
 
@@ -24,6 +24,11 @@ export default function Navbar() {
       </NavLink>
     </>
   );
+
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
   const handleSignOut = () => {
     signOutUser().then(() => {
       console.log("user sign out successful");
@@ -31,8 +36,8 @@ export default function Navbar() {
   };
 
   return (
-    <div>
-      <div className="navbar bg-base-100">
+    <div className="w-11/12  mx-auto">
+      <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -58,25 +63,68 @@ export default function Navbar() {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
+            Crowdcube
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal gap-6 px-1">{links}</ul>
+          <ul className="menu menu-horizontal gap-6 px-1 font-semibold ">
+            {links}
+          </ul>
         </div>
         <div className="navbar-end">
           {user ? (
-            <Link onClick={handleSignOut} to="/login" className="btn">
-              Log Out
-            </Link>
+            <div className="relative" onClick={(e) => e.stopPropagation()}>
+              {/* User Photo */}
+              <div
+                className="relative flex items-center"
+                onMouseEnter={() => setIsHovered(true)}
+                // onMouseLeave={() => setIsHovered(false)}
+              >
+                <img
+                  src={user.photoURL}
+                  alt="User Profile"
+                  className="w-12 h-12 rounded-full cursor-pointer"
+                />
+              </div>
+              {/* Hover Content */}
+              {isHovered && (
+                <div
+                  className="absolute top-14 text-center right-0 bg-white border shadow-lg w-60 p-4 rounded-md z-10"
+                  onClick={(e) => e.stopPropagation()} // Prevent click event from propagating
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  {/* Display Name */}
+                  <p className="font-bold mb-2">
+                    {user.displayName || "Anonymous"}
+                  </p>
+                  {/* Logout Button */}
+                  <Link
+                    onClick={handleSignOut}
+                    to="/login"
+                    className="btn bg-gradient-to-r from-primary to-secondary text-white"
+                  >
+                    Log Out
+                  </Link>
+                </div>
+              )}
+            </div>
           ) : (
-            <>
-              <Link to="/login" className="btn">
+            <div className="space-x-1">
+              <Link
+                to="/login"
+                className="btn bg-gradient-to-r from-primary to-secondary text-white"
+              >
                 Login
               </Link>
-              <Link to="/register" className="btn">
+              <Link
+                to="/register"
+                className="btn bg-gradient-to-r from-primary to-secondary text-white"
+              >
                 Register
               </Link>
-            </>
+            </div>
           )}
         </div>
       </div>
