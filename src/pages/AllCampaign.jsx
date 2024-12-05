@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 export default function AllCampaign() {
   const loadedData = useLoaderData();
@@ -22,10 +22,13 @@ export default function AllCampaign() {
           <thead>
             <tr>
               <th></th>
-              <th>Name</th>
+
               <th>Campaign Title</th>
               <th>Campaign Type</th>
               <th>Amount</th>
+              <th>Deadline</th>
+
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -36,6 +39,12 @@ export default function AllCampaign() {
                 <td>{campaign.title}</td>
                 <td>{campaign.type}</td>
                 <td>{campaign.amount}</td>
+                <td>{campaign.deadline}</td>
+                <td>
+                  <Link className="btn" to={`/campaign/${campaign._id}`}>
+                    Details
+                  </Link>
+                </td>
               </tr>
             ))}
           </tbody>
