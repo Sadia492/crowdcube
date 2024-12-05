@@ -1,34 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 export default function Details() {
   const campaign = useLoaderData();
-  const {
-    _id,
-    image,
-    name,
-    email,
-    title,
-    description,
-    type,
-    amount,
-    deadline,
-  } = campaign;
+  const { user } = useContext(authContext);
+  const { _id, image, title, description, type, amount, deadline } = campaign;
+  const { displayName, email } = user;
   const data = {
     image,
-    name,
-    email,
     title,
     description,
     type,
     amount,
     deadline,
+    displayName,
+    email,
   };
-  console.log(data);
 
   const handleDonate = () => {
+    console.log(data);
     // const currentTime = new Date();
     const currentTime = format(new Date(), "yyyy-MM-dd");
     console.log(currentTime);

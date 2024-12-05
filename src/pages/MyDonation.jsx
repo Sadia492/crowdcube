@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Card from "../components/Card";
 import DonationCard from "../components/DonationCard";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 export default function MyDonation() {
-  const donations = useLoaderData();
+  const { user } = useContext(authContext);
+  const [donations, setDonations] = useState([]);
+  // const donations = useLoaderData();
+  useEffect(() => {
+    fetch(`http://localhost:5000/user-donations/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setDonations(data);
+      });
+  }, [user]);
   return (
     <div>
       <h2>My donation</h2>

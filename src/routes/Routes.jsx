@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: "/myDonations",
         element: <MyDonation></MyDonation>,
-        loader: () => fetch("http://localhost:5000/donations"),
+        // loader: () => fetch("http://localhost:5000/donations"),
       },
       {
         path: "/login",
