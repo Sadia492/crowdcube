@@ -1,18 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Register() {
   const { createUser, setUser, updateUser, setLoading } =
     useContext(authContext);
+  const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
   const handleRegister = (e) => {
     e.preventDefault();
+    setError("");
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    const data = { name, email, photo, password };
+    if (!/[A-Z]/.test(password)) {
+      return setError("Password must contain at least one uppercase letter");
+    }
+    if (!/[a-z]/.test(password)) {
+      return setError("Password must contain at least one lowercase letter");
+    }
+    if (password.length < 6) {
+      return setError("Password must contain at least 6 characters");
+    }
+
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
@@ -22,7 +36,7 @@ export default function Register() {
           console.log("profile updated");
         });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => toast.error(error.code))
       .finally(() => setLoading(false));
   };
 
@@ -70,19 +84,25 @@ export default function Register() {
             <label className="label">
               <span className="label-text">Password</span>
             </label>
-            <input
-              type="password"
-              name="password"
-              placeholder="password"
-              className="input input-bordered"
-              required
-            />
+            <label className="input input-bordered flex  justify-between items-center gap-2">
+              <input
+                type={show ? "text" : "password"}
+                name="password"
+                placeholder="password"
+                className=""
+                required
+              />
+              <button onClick={() => setShow(!show)} type="button" className="">
+                {show ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+              </button>
+            </label>
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Register</button>
           </div>
+          {error && <p className="text-red-500 text-center">{error}</p>}
           <p className="text-center">
-            Don't have an account? Please{" "}
+            Already have an account? Please{" "}
             <Link className="text-red-500 font-bold" to="/login">
               Login
             </Link>
