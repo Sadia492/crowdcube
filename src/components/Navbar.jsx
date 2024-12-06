@@ -59,14 +59,10 @@ export default function Navbar() {
           : "bg-secondary/45 backdrop-blur-xl" // Non-transparent background on other pages
       }`}
     >
-      <div className="navbar w-11/12  mx-auto">
+      <div className="navbar lg:w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost text-white lg:hidden"
-            >
+            <div tabIndex={0} role="button" className=" text-white lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -134,7 +130,7 @@ export default function Navbar() {
           {user ? (
             <div className="relative" onClick={(e) => e.stopPropagation()}>
               <div
-                className="relative flex items-center"
+                className="relative flex items-center pr-12 "
                 onMouseEnter={() => setIsHovered(true)}
               >
                 <img
