@@ -4,6 +4,7 @@ import RunningCampaign from "../components/RunningCampaign";
 import { useLoaderData } from "react-router-dom";
 import FAQ from "../components/FAQ";
 import Features from "../components/Features";
+import { Helmet } from "react-helmet";
 
 export default function Home() {
   const runningCampaigns = useLoaderData();
@@ -24,6 +25,9 @@ export default function Home() {
 
   return (
     <div>
+      <Helmet>
+        <title>Crowdcube | Home</title>
+      </Helmet>
       <div className="text-right  absolute right-0 z-10 top-20">
         <label className="flex cursor-pointer gap-2">
           <svg

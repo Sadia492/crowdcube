@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function UpdateCampaign() {
   const { user } = useContext(authContext);
@@ -20,7 +21,7 @@ export default function UpdateCampaign() {
       deadline: form.deadline.value,
     };
 
-    fetch(`http://localhost:5000/campaigns/${_id}`, {
+    fetch(`https://crowdcube-server-sand.vercel.app/campaigns/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -41,6 +42,9 @@ export default function UpdateCampaign() {
 
   return (
     <div className="mt-16 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">
+      <Helmet>
+        <title>Crowdcube | Update</title>
+      </Helmet>
       <div className="card lg:px-16 lg:py-20 w-11/12 mx-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"

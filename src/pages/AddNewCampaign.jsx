@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 export default function AddNewCampaign() {
   const { user } = useContext(authContext);
@@ -26,7 +27,7 @@ export default function AddNewCampaign() {
       name,
     };
 
-    fetch("http://localhost:5000/campaigns", {
+    fetch("https://crowdcube-server-sand.vercel.app/campaigns", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -46,6 +47,9 @@ export default function AddNewCampaign() {
   };
   return (
     <div className="mt-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">
+      <Helmet>
+        <title>Crowdcube | Add Campaign</title>
+      </Helmet>
       <div className="card lg:px-16 py-20 w-11/12 mx-auto ">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -3,13 +3,16 @@ import { useLoaderData } from "react-router-dom";
 import Card from "../components/Card";
 import DonationCard from "../components/DonationCard";
 import { authContext } from "../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 export default function MyDonation() {
   const { user } = useContext(authContext);
   const [donations, setDonations] = useState([]);
   // const donations = useLoaderData();
   useEffect(() => {
-    fetch(`http://localhost:5000/user-donations/${user?.email}`)
+    fetch(
+      `https://crowdcube-server-sand.vercel.app/user-donations/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setDonations(data);
@@ -17,6 +20,9 @@ export default function MyDonation() {
   }, [user]);
   return (
     <div className="w-11/12 mx-auto mt-24 mb-12">
+      <Helmet>
+        <title>Crowdcube | My Donation</title>
+      </Helmet>
       <h2 className="text-3xl font-bold text-center mb-6">My donation</h2>
       <p className="text-center text-gray-500 lg:w-1/2 mb-12 mx-auto">
         Track the campaigns you've supported and see the impact of your generous

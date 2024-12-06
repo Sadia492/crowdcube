@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 export default function AllCampaign() {
@@ -11,6 +12,9 @@ export default function AllCampaign() {
 
   return (
     <div className="mt-24 mb-12">
+      <Helmet>
+        <title>Crowdcube | All Campaign</title>
+      </Helmet>
       <h2 className="text-3xl font-bold text-center">All Campaign</h2>
       <p className="text-center text-gray-500 lg:w-1/2 mb-12 mx-auto">
         Explore a variety of impactful campaigns and find the ones that resonate

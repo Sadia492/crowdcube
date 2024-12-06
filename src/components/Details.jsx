@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
 import { authContext } from "../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 export default function Details() {
   const campaign = useLoaderData();
@@ -24,7 +25,7 @@ export default function Details() {
     const currentTime = format(new Date(), "yyyy-MM-dd");
 
     if (currentTime <= data.deadline) {
-      fetch("http://localhost:5000/donations", {
+      fetch("https://crowdcube-server-sand.vercel.app/donations", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -52,6 +53,9 @@ export default function Details() {
 
   return (
     <div className="flex lg:flex-row flex-col bg-base-100 gap-8 justify-center items-center shadow-xl w-11/12 mx-auto mt-24">
+      <Helmet>
+        <title>Crowdcube | Details</title>
+      </Helmet>
       <figure className="flex-1">
         <img className="w-full" src={image} alt="Album" />
       </figure>

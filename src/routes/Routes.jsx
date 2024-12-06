@@ -21,12 +21,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/running-campaigns"),
+        loader: () =>
+          fetch("https://crowdcube-server-sand.vercel.app/running-campaigns"),
       },
       {
         path: "/campaigns",
         element: <AllCampaign></AllCampaign>,
-        loader: () => fetch("http://localhost:5000/campaigns"),
+        loader: () =>
+          fetch("https://crowdcube-server-sand.vercel.app/campaigns"),
       },
       {
         path: " /addCampaign",
@@ -44,7 +46,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/campaigns/${params.id}`),
+          fetch(
+            `https://crowdcube-server-sand.vercel.app/campaigns/${params.id}`
+          ),
       },
       {
         path: "/myCampaign",
@@ -61,7 +65,6 @@ const router = createBrowserRouter([
             <MyDonation></MyDonation>
           </PrivateRoute>
         ),
-        // loader: () => fetch("http://localhost:5000/donations"),
       },
       {
         path: "/login",
@@ -79,7 +82,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/campaigns/${params.id}`),
+          fetch(
+            `https://crowdcube-server-sand.vercel.app/campaigns/${params.id}`
+          ),
       },
     ],
   },

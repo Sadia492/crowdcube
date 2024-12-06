@@ -3,6 +3,7 @@ import { authContext } from "../AuthProvider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 export default function Login() {
   const { signInUser, setUser, signInWithGoogle } = useContext(authContext);
@@ -37,6 +38,9 @@ export default function Login() {
   };
   return (
     <div className="flex justify-center items-center mt-16 py-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">
+      <Helmet>
+        <title>Crowdcube | Login</title>
+      </Helmet>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="text-center btn bg-gradient-to-r from-primary to-secondary text-white">
           <button className="" onClick={handleSignInWithGoogle}>

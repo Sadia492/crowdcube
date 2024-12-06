@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 export default function MyCampaign() {
   const { user } = useContext(authContext);
@@ -9,7 +10,9 @@ export default function MyCampaign() {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/user-campaigns/${user?.email}`)
+      fetch(
+        `https://crowdcube-server-sand.vercel.app/user-campaigns/${user?.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setUserCampaigns(data);
@@ -27,7 +30,7 @@ export default function MyCampaign() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/campaigns/${id}`, {
+        fetch(`https://crowdcube-server-sand.vercel.app/campaigns/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -50,6 +53,9 @@ export default function MyCampaign() {
 
   return (
     <div className="mt-24">
+      <Helmet>
+        <title>Crowdcube | My Campaign</title>
+      </Helmet>
       <h2 className="text-3xl font-bold text-center">My campaigns</h2>
       <p className="text-center text-gray-500 lg:w-1/2 mb-12 mx-auto">
         View and manage the campaigns you've created to make a real difference.
