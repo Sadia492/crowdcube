@@ -178,13 +178,15 @@ export default function MyCampaign() {
                   <td>{campaign.deadline}</td>
                   <td>
                     <Link to={`/updateCampaign/${campaign._id}`}>
-                      <button className="btn">Update</button>
+                      <button className="btn bg-gradient-to-r from-primary to-secondary text-white">
+                        Update
+                      </button>
                     </Link>
                   </td>
                   <td>
                     <button
                       onClick={() => handleDelete(campaign._id)}
-                      className="btn"
+                      className="btn bg-gradient-to-r from-primary to-secondary text-white"
                     >
                       Delete
                     </button>

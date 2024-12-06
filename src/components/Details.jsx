@@ -40,7 +40,11 @@ export default function Details() {
         .then((data) => {
           console.log(data);
           if (data.insertedId) {
-            Swal.fire("Donation successful");
+            Swal.fire({
+              icon: "success",
+              title: "Donation Successful",
+              text: "You have Successfully donated in this campaign.",
+            });
           }
         });
     } else {

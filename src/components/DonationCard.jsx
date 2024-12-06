@@ -5,15 +5,22 @@ export default function DonationCard({ campaign }) {
     campaign || {};
   return (
     <div>
-      <div className="card bg-base-100 w-96 shadow-xl">
-        <figure className="px-10 pt-10">
-          <img src={image} alt="Shoes" className="rounded-xl" />
+      <div className="card bg-base-100 shadow-2xl h-full">
+        <figure className="px-12 pt-12 w-full">
+          <img
+            src={image}
+            alt="Shoes"
+            className="rounded-xl w-full h-full object-cover"
+          />
         </figure>
-        <div className="card-body">
-          <h2 className="card-title">{title}</h2>
+        <div className="card-body px-12">
+          <h2 className="card-title font-bold text-xl text-black">{title}</h2>
           <p>{description}</p>
-          <p>{type}</p>
-          <p>{amount}</p>
+          <p>
+            <span className="font-bold">donation amount: </span>
+            {amount}$
+          </p>
+          <div class="badge bg-primary text-white p-3">{type}</div>
         </div>
       </div>
     </div>
