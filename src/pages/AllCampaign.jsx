@@ -139,7 +139,10 @@ export default function AllCampaign() {
           </thead>
           <tbody className="bg-gradient-to-br from-secondary font-medium to-primary text-white">
             {data.map((campaign, idx) => (
-              <tr key={campaign._id} className="hover hover:text-black">
+              <tr
+                key={campaign._id}
+                className="hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white"
+              >
                 <th className="px-16">{idx + 1}</th>
 
                 <td>{campaign.title}</td>
