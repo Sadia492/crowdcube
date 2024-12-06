@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import RunningCampaign from "../components/RunningCampaign";
 import { useLoaderData } from "react-router-dom";
 import FAQ from "../components/FAQ";
+import Features from "../components/Features";
 
 export default function Home() {
   const runningCampaigns = useLoaderData();
@@ -64,6 +65,7 @@ export default function Home() {
       </div>
       <Banner></Banner>
       <RunningCampaign runningCampaigns={runningCampaigns}></RunningCampaign>
+      <Features></Features>
       <FAQ></FAQ>
     </div>
   );
