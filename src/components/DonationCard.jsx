@@ -14,7 +14,7 @@ export default function DonationCard({ campaign }) {
           />
         </figure>
         <div className="card-body px-12">
-          <h2 className="card-title font-bold text-xl text-black">{title}</h2>
+          <h2 className="card-title font-bold text-xl">{title}</h2>
           <p>{description}</p>
           <p>
             <span className="font-bold">donation amount: </span>

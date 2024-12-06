@@ -5,7 +5,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 export default function Footer() {
   return (
-    <footer className="mt-12 bg-neutral text-neutral-content">
+    <footer className=" bg-neutral text-neutral-content">
       <div className="bg-neutral text-neutral-content p-10 w-11/12 mx-auto">
         <div className="footer justify-between border-b pb-6 mb-6">
           <div>

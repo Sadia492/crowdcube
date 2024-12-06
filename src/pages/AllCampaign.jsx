@@ -5,13 +5,12 @@ export default function AllCampaign() {
   const loadedData = useLoaderData();
   const [data, setData] = useState(loadedData);
   const handleSort = () => {
-    console.log("hello");
     const sortedData = [...data].sort((a, b) => b.amount - a.amount);
     setData(sortedData);
   };
 
   return (
-    <div className="mt-24">
+    <div className="mt-24 mb-12">
       <h2 className="text-3xl font-bold text-center">All Campaign</h2>
       <p className="text-center text-gray-500 lg:w-1/2 mb-12 mx-auto">
         Explore a variety of impactful campaigns and find the ones that resonate
@@ -138,7 +137,7 @@ export default function AllCampaign() {
               <th className="hidden sm:block"></th>
 
               <th className="lg:p-4">Campaign Title</th>
-              <th className="hidden lg:block">Campaign Type</th>
+              <th className="hidden lg:block w-full h-full">Campaign Type</th>
               <th>Amount</th>
               <th className="hidden lg:block">Deadline</th>
 
@@ -159,7 +158,7 @@ export default function AllCampaign() {
                     className="btn bg-gradient-to-r from-primary to-secondary text-white"
                     to={`/campaign/${campaign._id}`}
                   >
-                    Details
+                    See More
                   </Link>
                 </td>
               </tr>

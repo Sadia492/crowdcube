@@ -48,11 +48,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/myCampaign",
-        element: <MyCampaign></MyCampaign>,
+        element: (
+          <PrivateRoute>
+            <MyCampaign></MyCampaign>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myDonations",
-        element: <MyDonation></MyDonation>,
+        element: (
+          <PrivateRoute>
+            <MyDonation></MyDonation>
+          </PrivateRoute>
+        ),
         // loader: () => fetch("http://localhost:5000/donations"),
       },
       {
@@ -65,7 +73,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateCampaign/:id",
-        element: <UpdateCampaign></UpdateCampaign>,
+        element: (
+          <PrivateRoute>
+            <UpdateCampaign></UpdateCampaign>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/campaigns/${params.id}`),
       },

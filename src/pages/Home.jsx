@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="text-right pr-20 absolute right-0 z-10 top-20">
+      <div className="text-right  absolute right-0 z-10 top-20">
         <label className="flex cursor-pointer gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"

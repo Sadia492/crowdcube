@@ -12,12 +12,11 @@ export default function MyDonation() {
     fetch(`http://localhost:5000/user-donations/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setDonations(data);
       });
   }, [user]);
   return (
-    <div className="w-11/12 mx-auto mt-24">
+    <div className="w-11/12 mx-auto mt-24 mb-12">
       <h2 className="text-3xl font-bold text-center mb-6">My donation</h2>
       <p className="text-center text-gray-500 lg:w-1/2 mb-12 mx-auto">
         Track the campaigns you've supported and see the impact of your generous

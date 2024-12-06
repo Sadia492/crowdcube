@@ -46,9 +46,7 @@ export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleSignOut = () => {
-    signOutUser().then(() => {
-      console.log("user sign out successful");
-    });
+    signOutUser().then(() => {});
   };
 
   return (

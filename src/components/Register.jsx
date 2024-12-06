@@ -30,12 +30,10 @@ export default function Register() {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
         setUser(result.user);
+        toast.success("Registration successful");
         navigate("/");
-        updateUser({ displayName: name, photoURL: photo }).then(() => {
-          console.log("profile updated");
-        });
+        updateUser({ displayName: name, photoURL: photo }).then(() => {});
       })
       .catch((error) => toast.error(error.code))
       .finally(() => setLoading(false));

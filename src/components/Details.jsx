@@ -21,13 +21,8 @@ export default function Details() {
   };
 
   const handleDonate = () => {
-    console.log(data);
-    // const currentTime = new Date();
     const currentTime = format(new Date(), "yyyy-MM-dd");
-    console.log(currentTime);
-    console.log("Current Time:", currentTime);
-    console.log("Deadline:", deadline);
-    // if(currentTime)
+
     if (currentTime <= data.deadline) {
       fetch("http://localhost:5000/donations", {
         method: "POST",
@@ -38,7 +33,6 @@ export default function Details() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.insertedId) {
             Swal.fire({
               icon: "success",

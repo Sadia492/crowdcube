@@ -15,25 +15,25 @@ export default function Login() {
     const email = form.email.value;
     const password = form.password.value;
     const data = { email, password };
-    console.log(data);
+
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
         setUser(result.user);
+        toast.success("Login successful");
         navigate(location?.state ? location?.state : "/");
       })
       .catch((error) => {
         toast.error(error.code);
-        console.log(error);
       });
   };
   const handleSignInWithGoogle = () => {
     signInWithGoogle()
       .then((result) => {
         setUser(result.user);
-        console.log("sign In with google successful");
+        toast.success("Login successful");
+        navigate(location?.state ? location?.state : "/");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => toast.error(error.code));
   };
   return (
     <div className="flex justify-center items-center mt-16 py-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">

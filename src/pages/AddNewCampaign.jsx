@@ -25,7 +25,7 @@ export default function AddNewCampaign() {
       email,
       name,
     };
-    console.log(data);
+
     fetch("http://localhost:5000/campaigns", {
       method: "POST",
       headers: {
@@ -35,7 +35,6 @@ export default function AddNewCampaign() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Added Campaign",

@@ -19,7 +19,7 @@ export default function UpdateCampaign() {
       amount: form.amount.value,
       deadline: form.deadline.value,
     };
-    // console.log(data);
+
     fetch(`http://localhost:5000/campaigns/${_id}`, {
       method: "PUT",
       headers: {
@@ -29,7 +29,6 @@ export default function UpdateCampaign() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           Swal.fire({
             icon: "success",
