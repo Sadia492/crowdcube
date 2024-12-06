@@ -15,7 +15,7 @@ export default function Card({ campaign }) {
           />
         </figure>
         <div className="card-body flex-1">
-          <h2 className="card-title font-bold text-2xl text-black">{title}</h2>
+          <h2 className="card-title font-bold text-2xl">{title}</h2>
           <p>{description}</p>
           <p>
             <span className="font-bold">Campaign Type: </span>
