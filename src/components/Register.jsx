@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -9,6 +9,7 @@ export default function Register() {
     useContext(authContext);
   const [show, setShow] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
     setError("");
@@ -18,20 +19,20 @@ export default function Register() {
     const photo = form.photo.value;
     const password = form.password.value;
     if (!/[A-Z]/.test(password)) {
-      return setError("Password must contain at least one uppercase letter");
+      return setError("Must have an Uppercase letter in the password ");
     }
     if (!/[a-z]/.test(password)) {
-      return setError("Password must contain at least one lowercase letter");
+      return setError("Must have a Lowercase letter in the password");
     }
     if (password.length < 6) {
-      return setError("Password must contain at least 6 characters");
+      return setError("Password length must be at least 6 character");
     }
 
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
         setUser(result.user);
-
+        navigate("/");
         updateUser({ displayName: name, photoURL: photo }).then(() => {
           console.log("profile updated");
         });
