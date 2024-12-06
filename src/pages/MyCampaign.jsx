@@ -52,6 +52,12 @@ export default function MyCampaign() {
   return (
     <div className="mt-24">
       <h2 className="text-3xl font-bold text-center">My campaigns</h2>
+      <p className="text-center text-gray-500 w-1/2 mb-12 mx-auto">
+        View and manage the campaigns you've created to make a real difference.
+        Your initiatives are just a few steps away from inspiring others and
+        driving impactful change.
+      </p>
+
       <div className="flex gap-2 w-11/12 mx-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -167,10 +173,7 @@ export default function MyCampaign() {
           <tbody className="bg-gradient-to-br from-secondary font-medium to-primary text-white">
             {userCampaigns &&
               userCampaigns.map((campaign, idx) => (
-                <tr
-                  key={campaign._id}
-                  className="hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white"
-                >
+                <tr key={campaign._id} className="hover:text-primary">
                   <th className="px-16">{idx + 1}</th>
                   <td>{campaign.title}</td>
                   <td>{campaign.type}</td>

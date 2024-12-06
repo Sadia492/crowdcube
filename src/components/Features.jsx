@@ -11,7 +11,7 @@ export default function Features() {
       <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text mt-12">
         {" "}
         <Typewriter
-          words={["Campaign Features"]}
+          words={["Key Features"]}
           loop={true} // Set to true to loop through the words
           cursor
           cursorStyle="_"
@@ -20,6 +20,11 @@ export default function Features() {
           delaySpeed={1000} // Delay between typing and deleting (default is 1000)
         />
       </h2>
+      <p className="text-center text-gray-500 w-1/2 mb-12 mx-auto">
+        Discover the powerful features of our platform that drive change and
+        connect people. Together, we can ignite impact, spread awareness, and
+        build a global network of support for those in need.
+      </p>
       <div className="bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover p-10">
         <div className="grid grid-cols-3 gap-6 w-11/12 mx-auto ">
           <div className="bg-base-100 rounded-xl p-8">

@@ -19,6 +19,11 @@ export default function MyDonation() {
   return (
     <div className="w-11/12 mx-auto mt-24">
       <h2 className="text-3xl font-bold text-center mb-6">My donation</h2>
+      <p className="text-center text-gray-500 w-1/2 mb-12 mx-auto">
+        Track the campaigns you've supported and see the impact of your generous
+        donations. Your contributions are helping make a meaningful difference
+        in the lives of those in need.
+      </p>
       <div className="flex gap-2 mb-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -47,10 +47,10 @@ export default function Navbar() {
   return (
     <div
       className={`${
-        pathname !== "/" ? "bg-primary/45 backdrop-blur-xl" : ""
+        pathname !== "/" ? "bg-secondary/45 backdrop-blur-xl" : ""
       } w-full fixed top-0 z-10 transition-all duration-500 ease-in-out  ${
         isScrolled && pathname === "/"
-          ? "bg-primary/40 backdrop-blur-md text-white"
+          ? "bg-secondary/50 backdrop-blur-md text-white"
           : "bg-transparent "
       }`}
     >

@@ -17,9 +17,9 @@ export default function RunningCampaign({ runningCampaigns }) {
         />
       </h2>
       <p className="text-center text-gray-500 w-1/2 mb-12 mx-auto">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-        quaerat natus, voluptatibus possimus mollitia libero voluptate expedita
-        at. Quod, blanditiis?
+        Join our ongoing campaigns and help make a direct impact on those in
+        need. Together, we can bring warmth and hope to the most vulnerable
+        communities.
       </p>
       <div className="grid grid-cols-2 gap-6">
         {runningCampaigns.map((campaign) => (

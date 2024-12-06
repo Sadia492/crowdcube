@@ -29,7 +29,7 @@ export default function Banner() {
       title: "YOU HELP PEOPLE?",
       title2: "BECOME A VOLUNTEER",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident corporis ut architecto? Enim corrupti eum quis. Eveniet voluptas voluptatum repellat?",
+        "Join our mission to make a difference in the lives of those in need. Become a volunteer today and help spread warmth and hope.",
       titleAnimation: "animate__backInLeft",
     },
     {
@@ -38,7 +38,7 @@ export default function Banner() {
       title: "NEED CHANGES?",
       title2: "MAKE A DONATION",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident corporis ut architecto? Enim corrupti eum quis. Eveniet voluptas voluptatum repellat?",
+        "Your contribution can create lasting change in someone's life. Donate now and help provide warmth and comfort to those in need.",
       titleAnimation: "animate__rubberBand",
     },
     {
@@ -48,7 +48,7 @@ export default function Banner() {
       title: "MAKE A DONATION",
       title2: "BECOME A VOLUNTEER",
       description:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident corporis ut architecto? Enim corrupti eum quis. Eveniet voluptas voluptatum repellat?",
+        "Your donation can make a real difference in someone's life. Or, volunteer your time to help spread warmth and kindness to those in need.",
       titleAnimation: "animate__flipInY animate__slow",
     },
   ];

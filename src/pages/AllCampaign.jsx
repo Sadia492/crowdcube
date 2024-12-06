@@ -13,6 +13,11 @@ export default function AllCampaign() {
   return (
     <div className="mt-24">
       <h2 className="text-3xl font-bold text-center">All Campaign</h2>
+      <p className="text-center text-gray-500 w-1/2 mb-12 mx-auto">
+        Explore a variety of impactful campaigns and find the ones that resonate
+        with you. Join us in making a difference by supporting causes that
+        matter most.
+      </p>
       <div className="flex w-11/12 mx-auto">
         <div className="flex gap-2">
           <svg
@@ -139,10 +144,7 @@ export default function AllCampaign() {
           </thead>
           <tbody className="bg-gradient-to-br from-secondary font-medium to-primary text-white">
             {data.map((campaign, idx) => (
-              <tr
-                key={campaign._id}
-                className="hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white"
-              >
+              <tr key={campaign._id} className="hover:text-primary">
                 <th className="px-16">{idx + 1}</th>
 
                 <td>{campaign.title}</td>

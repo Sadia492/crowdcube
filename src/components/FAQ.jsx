@@ -5,7 +5,7 @@ import humanImg from "../assets/human.png";
 export default function FAQ() {
   return (
     <div className="w-11/12 mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text mt-16">
+      <h2 className="text-3xl font-bold mb-2 text-center bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text mt-16">
         {" "}
         <Typewriter
           words={["Frequently Asked Questions"]}
@@ -17,7 +17,10 @@ export default function FAQ() {
           delaySpeed={1000} // Delay between typing and deleting (default is 1000)
         />
       </h2>
-
+      <p className="text-center text-gray-500 w-1/2 mb-12 mx-auto">
+        Got questions? We've got answers! Browse through our frequently asked
+        questions to find helpful information and make your experience smoother.
+      </p>
       <div className="flex justify-center items-center mt-12">
         <div className="flex-1 w-full justify-center items-center flex">
           <img className="w-[500px] object-cover" src={humanImg} alt="" />
