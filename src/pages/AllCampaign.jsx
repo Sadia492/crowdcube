@@ -129,7 +129,7 @@ export default function AllCampaign() {
             <tr className="text-lg">
               <th></th>
 
-              <th className="p-8">Campaign Title</th>
+              <th className="p-4">Campaign Title</th>
               <th>Campaign Type</th>
               <th>Amount</th>
               <th>Deadline</th>
