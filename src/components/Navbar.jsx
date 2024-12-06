@@ -80,7 +80,7 @@ export default function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content !text-black bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
@@ -142,7 +142,7 @@ export default function Navbar() {
 
               {isHovered && (
                 <div
-                  className="absolute top-14 text-center right-0 bg-white border shadow-lg w-60 p-4 rounded-md z-50"
+                  className="absolute top-14 text-center right-0 bg-white border shadow-lg w-60 p-4 rounded-md !z-50"
                   onClick={(e) => e.stopPropagation()} // Prevent click event from propagating
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
