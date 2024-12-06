@@ -1,8 +1,28 @@
-# React + Vite
+# Crowdcube
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Site URL
 
-Currently, two official plugins are available:
+[Visit Crowdcube](https://crowdcube-dc5f1.web.app/)
+[Alternative Link](https://crowdcube1.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Theme
+
+Crowdcube is a crowdfunding platform where individuals and organizations can raise money for various projects, ideas, or causes by inviting others to contribute financially. These projects can range from personal needs (like medical expenses) to creative ideas (such as making a film or app), and startups (like launching a new product).
+
+## Features
+
+- **User-Friendly Campaign Management:** Create, browse, and manage fundraising campaigns with ease.
+
+- **Secure Donation System:** Contribute to campaigns securely and track your donations.
+
+- **Categories for Campaigns:** Explore campaigns by categories such as personal needs, startups, or creative ideas.
+
+- **Responsive Design:** A fully responsive layout ensures a seamless experience across all devices.
+
+- **Sort Campaigns by Cost:** Easily sort campaigns to find the ones with the highest funding goals.
+
+## Technologies Used
+
+- **Frontend:** React, Tailwind CSS, DaisyUI
+- **Backend:** Firebase Authentication and MongoDB
+- **Deployment:** Vercel/Netlify
