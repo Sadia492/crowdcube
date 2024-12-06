@@ -162,7 +162,7 @@ export default function Navbar() {
               )}
             </div>
           ) : (
-            <div className="space-x-1">
+            <div className="space-x-1  pr-12">
               <Link
                 to="/login"
                 className="btn bg-gradient-to-r from-primary to-secondary text-white"
