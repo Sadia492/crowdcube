@@ -52,7 +52,7 @@ export default function Footer() {
             </div>
             <div></div>
           </div>
-          <div className="flex gap-8">
+          <div className="flex flex-col lg:flex-row gap-8">
             <nav>
               <h2 className="font-bold text-xl mb-4">Donate</h2>
               <ul className="">
@@ -97,12 +97,12 @@ export default function Footer() {
             </nav>
           </div>
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-col lg:flex-row gap-2 justify-between">
           <div>
             <p>&copy;Crowdcube 2024</p>
             <p>All rights reserved</p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap  gap-4">
             <button className="flex border rounded-full justify-center items-center px-4 py-2 gap-2">
               <p className="text-white text-2xl">
                 <FaInstagram />

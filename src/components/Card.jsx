@@ -6,7 +6,7 @@ export default function Card({ campaign }) {
     campaign || {};
   return (
     <div>
-      <div className="card card-side bg-base-100 shadow-xl border-2 border-primary">
+      <div className="card lg:flex-row flex-col card-side bg-base-100 shadow-xl border-2 border-primary">
         <figure className="flex-1">
           <img
             className="w-full h-96 object-cover object-center"

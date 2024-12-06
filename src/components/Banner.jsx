@@ -63,7 +63,7 @@ export default function Banner() {
               alt={`Slide ${slide.id}`}
               className="w-full h-screen object-top object-cover"
             />
-            <div className="absolute top-0 flex flex-col justify-center items-start pl-24 h-screen text-white left-0 z-30 font-bold space-y-4">
+            <div className="absolute top-0 flex flex-col pt-16 justify-center items-start lg:pl-24 pl-6 h-screen text-white left-0 z-30 font-bold space-y-4">
               <h1
                 className={`animate__animated ${
                   currentSlide === index
@@ -83,7 +83,7 @@ export default function Banner() {
                 {slide.title2}
               </h1>
               <p
-                className={`w-1/2 text-gray-500 animate__animated ${
+                className={`lg:w-1/2 text-gray-500 animate__animated ${
                   currentSlide === index
                     ? "animate__backInLeft"
                     : "animate__fadeOut"

@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import humanImg from "../assets/human.png";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function FAQ() {
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: true }); // You can adjust the duration or other options
+  }, []);
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="w-11/12 mx-auto" data-aos="fade-up">
       <h2 className="text-3xl font-bold mb-2 text-center bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text mt-16">
         {" "}
         <Typewriter
@@ -17,11 +22,11 @@ export default function FAQ() {
           delaySpeed={1000} // Delay between typing and deleting (default is 1000)
         />
       </h2>
-      <p className="text-center text-gray-500 w-1/2 mb-12 mx-auto">
+      <p className="text-center text-gray-500 lg:w-1/2 mb-12 mx-auto">
         Got questions? We've got answers! Browse through our frequently asked
         questions to find helpful information and make your experience smoother.
       </p>
-      <div className="flex justify-center items-center mt-12">
+      <div className="flex flex-col lg:flex-row justify-center items-center mt-12">
         <div className="flex-1 w-full justify-center items-center flex">
           <img className="w-[500px] object-cover" src={humanImg} alt="" />
         </div>

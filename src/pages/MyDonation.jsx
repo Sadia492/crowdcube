@@ -19,7 +19,7 @@ export default function MyDonation() {
   return (
     <div className="w-11/12 mx-auto mt-24">
       <h2 className="text-3xl font-bold text-center mb-6">My donation</h2>
-      <p className="text-center text-gray-500 w-1/2 mb-12 mx-auto">
+      <p className="text-center text-gray-500 lg:w-1/2 mb-12 mx-auto">
         Track the campaigns you've supported and see the impact of your generous
         donations. Your contributions are helping make a meaningful difference
         in the lives of those in need.
@@ -34,6 +34,7 @@ export default function MyDonation() {
           version="1.1"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
+          className="rotate-infinite"
         >
           <path
             fill='url("#SvgjsLinearGradient1257")'
@@ -66,6 +67,7 @@ export default function MyDonation() {
           version="1.1"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
+          className="rotate-infinite"
         >
           <path
             fill='url("#SvgjsLinearGradient1257")'
@@ -98,6 +100,7 @@ export default function MyDonation() {
           version="1.1"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
+          className="rotate-infinite"
         >
           <path
             fill='url("#SvgjsLinearGradient1257")'
@@ -122,7 +125,7 @@ export default function MyDonation() {
           </defs>
         </svg>
       </div>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-6">
         {donations.map((donation) => (
           <DonationCard key={donation._id} campaign={donation}></DonationCard>
         ))}

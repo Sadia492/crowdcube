@@ -42,9 +42,10 @@ export default function Register() {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover mt-16 py-8">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <form onSubmit={handleRegister} className="card-body">
+          <h2 className="font-bold text-center text-2xl">REGISTER NOW</h2>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Name</span>
@@ -99,7 +100,9 @@ export default function Register() {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Register</button>
+            <button className="btn bg-gradient-to-r from-primary to-secondary text-white">
+              Register
+            </button>
           </div>
           {error && <p className="text-red-500 text-center">{error}</p>}
           <p className="text-center">

@@ -52,7 +52,7 @@ export default function MyCampaign() {
   return (
     <div className="mt-24">
       <h2 className="text-3xl font-bold text-center">My campaigns</h2>
-      <p className="text-center text-gray-500 w-1/2 mb-12 mx-auto">
+      <p className="text-center text-gray-500 lg:w-1/2 mb-12 mx-auto">
         View and manage the campaigns you've created to make a real difference.
         Your initiatives are just a few steps away from inspiring others and
         driving impactful change.
@@ -68,6 +68,7 @@ export default function MyCampaign() {
           version="1.1"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
+          className="rotate-infinite"
         >
           <path
             fill='url("#SvgjsLinearGradient1257")'
@@ -100,6 +101,7 @@ export default function MyCampaign() {
           version="1.1"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
+          className="rotate-infinite"
         >
           <path
             fill='url("#SvgjsLinearGradient1257")'
@@ -132,6 +134,7 @@ export default function MyCampaign() {
           version="1.1"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
+          className="rotate-infinite"
         >
           <path
             fill='url("#SvgjsLinearGradient1257")'
@@ -156,16 +159,16 @@ export default function MyCampaign() {
           </defs>
         </svg>
       </div>
-      <div className="overflow-x-auto  w-11/12 mx-auto mt-8">
+      <div className="overflow-x-auto  lg:w-11/12 mx-auto mt-8">
         <table className="table">
           {/* head */}
           <thead className="bg-[url('https://i.ibb.co.com/7KqmCf5/triangles-1430105-1280.jpg')] bg-no-repeat bg-left bg-cover font-extrabold text-white">
             <tr className="text-lg">
-              <th></th>
-              <th className="p-4">Campaign Title</th>
-              <th>Campaign Type</th>
+              <th className="hidden sm:block"></th>
+              <th className="lg:p-4 p-0">Campaign Title</th>
+              <th className="hidden lg:block">Campaign Type</th>
               <th>Amount</th>
-              <th>Deadline</th>
+              <th className="hidden lg:block">Deadline</th>
               <th>Update</th>
               <th>Delete</th>
             </tr>
@@ -174,11 +177,11 @@ export default function MyCampaign() {
             {userCampaigns &&
               userCampaigns.map((campaign, idx) => (
                 <tr key={campaign._id} className="hover:text-primary">
-                  <th className="px-16">{idx + 1}</th>
+                  <th className="lg:px-16 hidden sm:block p-0">{idx + 1}</th>
                   <td>{campaign.title}</td>
-                  <td>{campaign.type}</td>
+                  <td className="hidden lg:block">{campaign.type}</td>
                   <td>{campaign.amount}</td>
-                  <td>{campaign.deadline}</td>
+                  <td className="hidden lg:block">{campaign.deadline}</td>
                   <td>
                     <Link to={`/updateCampaign/${campaign._id}`}>
                       <button className="btn bg-gradient-to-r from-primary to-secondary text-white">

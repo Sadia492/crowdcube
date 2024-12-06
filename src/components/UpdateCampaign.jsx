@@ -42,7 +42,7 @@ export default function UpdateCampaign() {
 
   return (
     <div className="mt-16 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">
-      <div className="card px-16 py-20 w-11/12 mx-auto">
+      <div className="card lg:px-16 lg:py-20 w-11/12 mx-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100"
@@ -76,7 +76,10 @@ export default function UpdateCampaign() {
         <h2 className="text-center text-3xl font-bold text-white">
           Update Information
         </h2>
-        <form onSubmit={handleSubmit} className="card-body grid grid-cols-2">
+        <form
+          onSubmit={handleSubmit}
+          className="card-body grid grid-cols-1 lg:grid-cols-2"
+        >
           <div className="form-control">
             <label className="label">
               <span className="label-text font-bold">Image</span>
@@ -188,7 +191,7 @@ export default function UpdateCampaign() {
               readOnly
             />
           </div>
-          <div className="form-control mt-6 col-span-2">
+          <div className="form-control mt-6 lg:col-span-2">
             <button className="btn bg-gradient-to-r from-primary to-secondary text-white">
               Update Campaign
             </button>

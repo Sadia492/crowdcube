@@ -9,13 +9,20 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const links = (
     <>
       <NavLink to="/">
@@ -46,18 +53,22 @@ export default function Navbar() {
 
   return (
     <div
-      className={`${
-        pathname !== "/" ? "bg-secondary/45 backdrop-blur-xl" : ""
-      } w-full fixed top-0 z-10 transition-all duration-500 ease-in-out  ${
-        isScrolled && pathname === "/"
-          ? "bg-secondary/50 backdrop-blur-md text-white"
-          : "bg-transparent "
+      className={`w-full fixed top-0 z-10 transition-all duration-500 ease-in-out ${
+        pathname === "/"
+          ? isScrolled
+            ? "bg-secondary/50 backdrop-blur-md text-white" // Background color when scrolled on homepage
+            : "bg-transparent" // Transparent background on homepage
+          : "bg-secondary/45 backdrop-blur-xl" // Non-transparent background on other pages
       }`}
     >
       <div className="navbar w-11/12  mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost text-white lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"

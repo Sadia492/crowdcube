@@ -47,7 +47,7 @@ export default function AddNewCampaign() {
   };
   return (
     <div className="mt-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">
-      <div className="card shrink-0  px-16 py-20 w-11/12 mx-auto ">
+      <div className="card lg:px-16 py-20 w-11/12 mx-auto ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100"
@@ -84,9 +84,9 @@ export default function AddNewCampaign() {
         </h2>
         <form
           onSubmit={handleSubmit}
-          className="card-body grid grid-cols-2 gap-x-6"
+          className="card-body grid !grid-cols-1 lg:!grid-cols-2 gap-x-6"
         >
-          <div className="form-control">
+          <div className="form-control w-full lg:w-auto">
             <label className="label">
               <span className="label-text font-bold">Image</span>
             </label>
@@ -94,11 +94,11 @@ export default function AddNewCampaign() {
               type="text"
               name="image"
               placeholder="image URL"
-              className="input input-bordered"
+              className="input input-bordered w-full"
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text font-bold">Campaign Title</span>
             </label>
@@ -110,7 +110,7 @@ export default function AddNewCampaign() {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text font-bold">Campaign type</span>
             </label>
@@ -122,7 +122,7 @@ export default function AddNewCampaign() {
               <option value="creative ideas">creative ideas</option>
             </select>
           </div>
-          <div className="form-control">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text font-bold">Description</span>
             </label>
@@ -134,7 +134,7 @@ export default function AddNewCampaign() {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text font-bold">
                 Minimum Donation Amount
@@ -148,7 +148,7 @@ export default function AddNewCampaign() {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text font-bold">Deadline</span>
             </label>
@@ -160,7 +160,7 @@ export default function AddNewCampaign() {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text font-bold">User Email</span>
             </label>
@@ -174,7 +174,7 @@ export default function AddNewCampaign() {
               readOnly
             />
           </div>
-          <div className="form-control">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text font-bold">User Name</span>
             </label>
@@ -188,7 +188,7 @@ export default function AddNewCampaign() {
               readOnly
             />
           </div>
-          <div className="form-control mt-6 col-span-2">
+          <div className="form-control mt-6 lg:col-span-2">
             <button className="btn bg-gradient-to-r from-primary to-secondary text-white">
               Add
             </button>

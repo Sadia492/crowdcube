@@ -36,12 +36,15 @@ export default function Login() {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center mt-16 py-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <div className="text-center btn btn-outline">
-          <button onClick={handleSignInWithGoogle}>Sign In With Google</button>
+        <div className="text-center btn bg-gradient-to-r from-primary to-secondary text-white">
+          <button className="" onClick={handleSignInWithGoogle}>
+            Sign In With Google
+          </button>
         </div>
         <form onSubmit={handleLogin} className="card-body">
+          <h2 className="font-bold text-center text-2xl">LOGIN HERE</h2>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -79,7 +82,9 @@ export default function Login() {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn bg-gradient-to-r from-primary to-secondary text-white">
+              Login
+            </button>
           </div>
           <p className="text-center">
             Don't have an account? Please{" "}
