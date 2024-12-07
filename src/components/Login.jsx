@@ -26,6 +26,7 @@ export default function Login() {
       .catch((error) => {
         toast.error(error.code);
       });
+    form.reset();
   };
   const handleSignInWithGoogle = () => {
     signInWithGoogle()
@@ -35,6 +36,7 @@ export default function Login() {
         navigate(location?.state ? location?.state : "/");
       })
       .catch((error) => toast.error(error.code));
+    form.reset();
   };
   return (
     <div className="flex justify-center items-center mt-16 py-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">

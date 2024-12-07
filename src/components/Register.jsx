@@ -38,6 +38,7 @@ export default function Register() {
       })
       .catch((error) => toast.error(error.code))
       .finally(() => setLoading(false));
+    form.reset();
   };
 
   return (
