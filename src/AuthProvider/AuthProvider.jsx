@@ -9,6 +9,7 @@ import {
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 export const authContext = createContext();
 
@@ -29,10 +30,17 @@ export default function AuthProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const googleProvider = new GoogleAuthProvider();
-  const signInWithGoogle = () => {
-    setLoading(true);
-    return signInWithPopup(auth, googleProvider);
+  const signInWithGoogle = (navigate) => {
+    const googleProvider = new GoogleAuthProvider();
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        setUser(result.user);
+        toast.success("Login Successful");
+        navigate("/");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
   const updateUser = (profileData) => {
     setLoading(true);
