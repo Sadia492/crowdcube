@@ -20,7 +20,7 @@ export default function DonationCard({ campaign }) {
             <span className="font-bold">donation amount: </span>
             {amount}$
           </p>
-          <div class="badge bg-primary text-white p-3">{type}</div>
+          <div className="badge bg-primary text-white p-3">{type}</div>
         </div>
       </div>
     </div>

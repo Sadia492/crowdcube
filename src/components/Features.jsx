@@ -31,7 +31,7 @@ export default function Features() {
       </p>
       <div className="bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover p-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12 mx-auto ">
-          <div className="bg-base-100 rounded-xl p-8" data-aos="fade-right">
+          <div className="bg-base-100 rounded-xl p-8">
             <div className="text-center flex justify-center items-center">
               <Lottie
                 style={{ width: "50%", height: "50%" }}
@@ -47,7 +47,7 @@ export default function Features() {
               difference
             </p>
           </div>
-          <div className="bg-base-100 rounded-xl p-8" data-aos="fade-down">
+          <div className="bg-base-100 rounded-xl p-8">
             <div className="text-center flex justify-center items-center">
               <Lottie
                 style={{ width: "50%", height: "50%" }}
@@ -61,7 +61,7 @@ export default function Features() {
               fundraising campaign swiftly across serious platforms
             </p>
           </div>
-          <div className="bg-base-100 rounded-xl p-8" data-aos="fade-left">
+          <div className="bg-base-100 rounded-xl p-8">
             <div className="text-center flex justify-center items-center">
               <Lottie
                 style={{ width: "50%", height: "50%" }}

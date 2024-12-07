@@ -57,7 +57,7 @@ export default function AddNewCampaign() {
           height="100"
           viewBox="0 0 409.6 409.6"
           version="1.1"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
           className="absolute opacity-100 right-5 top-10 -rotate-45"
         >
@@ -72,7 +72,7 @@ export default function AddNewCampaign() {
           height="120"
           viewBox="0 0 409.6 409.6"
           version="1.1"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
           className="absolute opacity-100 -left-4 bottom-4 -rotate-45"
         >

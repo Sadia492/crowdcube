@@ -18,7 +18,7 @@ export default function Footer() {
                   fill="none"
                   viewBox="0 0 200 200"
                   version="1.1"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
                   xmlns:svgjs="http://svgjs.dev/svgjs"
                 >
                   <path
@@ -31,13 +31,13 @@ export default function Footer() {
                       id="SvgjsLinearGradient1134"
                     >
                       <stop
-                        stop-opacity=" 1"
-                        stop-color="rgba(136, 54, 119)"
+                        stopOpacity=" 1"
+                        stopColor="rgba(136, 54, 119)"
                         offset="0"
                       ></stop>
                       <stop
-                        stop-opacity=" 1"
-                        stop-color="rgba(255, 149, 140)"
+                        stopOpacity=" 1"
+                        stopColor="rgba(255, 149, 140)"
                         offset="1"
                       ></stop>
                     </linearGradient>

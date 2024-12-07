@@ -80,7 +80,7 @@ export default function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content !text-black bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content !text-neutral-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
@@ -93,7 +93,7 @@ export default function Navbar() {
               fill="none"
               viewBox="0 0 200 200"
               version="1.1"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
               xmlns:svgjs="http://svgjs.dev/svgjs"
             >
               <path
@@ -106,13 +106,13 @@ export default function Navbar() {
                   id="SvgjsLinearGradient1134"
                 >
                   <stop
-                    stop-opacity=" 1"
-                    stop-color="rgba(136, 54, 119)"
+                    stopOpacity=" 1"
+                    stopColor="rgba(136, 54, 119)"
                     offset="0"
                   ></stop>
                   <stop
-                    stop-opacity=" 1"
-                    stop-color="rgba(255, 149, 140)"
+                    stopOpacity=" 1"
+                    stopColor="rgba(255, 149, 140)"
                     offset="1"
                   ></stop>
                 </linearGradient>
@@ -130,7 +130,7 @@ export default function Navbar() {
           {user ? (
             <div className="relative" onClick={(e) => e.stopPropagation()}>
               <div
-                className="relative flex items-center pr-12 "
+                className="relative flex items-center"
                 onMouseEnter={() => setIsHovered(true)}
               >
                 <img
@@ -162,7 +162,7 @@ export default function Navbar() {
               )}
             </div>
           ) : (
-            <div className="space-x-1  pr-12">
+            <div className="space-x-1">
               <Link
                 to="/login"
                 className="btn bg-gradient-to-r from-primary to-secondary text-white"

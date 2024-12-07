@@ -56,10 +56,10 @@ export default function Details() {
       <Helmet>
         <title>Crowdcube | Details</title>
       </Helmet>
-      <figure className="flex-1">
-        <img className="w-full" src={image} alt="Album" />
+      <figure className="flex-1 p-4">
+        <img className="w-full rounded-3xl" src={image} alt="Album" />
       </figure>
-      <div className="flex-1">
+      <div className="flex-1 p-4">
         <h2 className="text-3xl font-bold ">{title}</h2>
         <p className=" text-gray-500 mb-6 mt-2">{description}</p>
 
@@ -79,8 +79,8 @@ export default function Details() {
           </p>
         </div>
         <div className="space-x-2 my-4">
-          <div class="badge bg-primary text-white p-3">{type}</div>
-          <div class="badge bg-secondary text-white p-3">
+          <div className="badge bg-primary text-white p-3">{type}</div>
+          <div className="badge bg-secondary text-white p-3">
             Deadline: {deadline}
           </div>
         </div>

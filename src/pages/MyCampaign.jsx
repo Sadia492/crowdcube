@@ -52,7 +52,7 @@ export default function MyCampaign() {
   };
 
   return (
-    <div className="mt-24">
+    <div className="mt-24 mb-12">
       <Helmet>
         <title>Crowdcube | My Campaign</title>
       </Helmet>
@@ -71,7 +71,7 @@ export default function MyCampaign() {
           fill="none"
           viewBox="0 0 200 200"
           version="1.1"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
           className="rotate-infinite"
         >
@@ -85,13 +85,13 @@ export default function MyCampaign() {
               id="SvgjsLinearGradient1257"
             >
               <stop
-                stop-opacity=" 1"
-                stop-color="rgba(136, 54, 119)"
+                stopOpacity=" 1"
+                stopColor="rgba(136, 54, 119)"
                 offset="0"
               ></stop>
               <stop
-                stop-opacity=" 1"
-                stop-color="rgba(255, 149, 140)"
+                stopOpacity=" 1"
+                stopColor="rgba(255, 149, 140)"
                 offset="1"
               ></stop>
             </linearGradient>
@@ -104,7 +104,7 @@ export default function MyCampaign() {
           fill="none"
           viewBox="0 0 200 200"
           version="1.1"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
           className="rotate-infinite"
         >
@@ -118,13 +118,13 @@ export default function MyCampaign() {
               id="SvgjsLinearGradient1257"
             >
               <stop
-                stop-opacity=" 1"
-                stop-color="rgba(136, 54, 119)"
+                stopOpacity=" 1"
+                stopColor="rgba(136, 54, 119)"
                 offset="0"
               ></stop>
               <stop
-                stop-opacity=" 1"
-                stop-color="rgba(255, 149, 140)"
+                stopOpacity=" 1"
+                stopColor="rgba(255, 149, 140)"
                 offset="1"
               ></stop>
             </linearGradient>
@@ -137,7 +137,7 @@ export default function MyCampaign() {
           fill="none"
           viewBox="0 0 200 200"
           version="1.1"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
           xmlns:svgjs="http://svgjs.dev/svgjs"
           className="rotate-infinite"
         >
@@ -151,13 +151,13 @@ export default function MyCampaign() {
               id="SvgjsLinearGradient1257"
             >
               <stop
-                stop-opacity=" 1"
-                stop-color="rgba(136, 54, 119)"
+                stopOpacity=" 1"
+                stopColor="rgba(136, 54, 119)"
                 offset="0"
               ></stop>
               <stop
-                stop-opacity=" 1"
-                stop-color="rgba(255, 149, 140)"
+                stopOpacity=" 1"
+                stopColor="rgba(255, 149, 140)"
                 offset="1"
               ></stop>
             </linearGradient>
@@ -168,12 +168,12 @@ export default function MyCampaign() {
         <table className="table">
           {/* head */}
           <thead className="bg-[url('https://i.ibb.co.com/7KqmCf5/triangles-1430105-1280.jpg')] bg-no-repeat bg-left bg-cover font-extrabold text-white">
-            <tr className="text-lg">
-              <th className="hidden sm:block"></th>
-              <th className="lg:p-4 p-0">Campaign Title</th>
-              <th className="hidden lg:block">Campaign Type</th>
+            <tr className="text-lg text-center">
+              <th>#</th>
+              <th className="lg:p-4 ">Campaign Title</th>
+              <th>Campaign Type</th>
               <th>Amount</th>
-              <th className="hidden lg:block">Deadline</th>
+              <th>Deadline</th>
               <th>Update</th>
               <th>Delete</th>
             </tr>
@@ -181,12 +181,15 @@ export default function MyCampaign() {
           <tbody className="bg-gradient-to-br from-secondary font-medium to-primary text-white">
             {userCampaigns &&
               userCampaigns.map((campaign, idx) => (
-                <tr key={campaign._id} className="hover:text-primary">
-                  <th className="lg:px-16 hidden sm:block p-0">{idx + 1}</th>
+                <tr
+                  key={campaign._id}
+                  className="hover:text-primary text-center"
+                >
+                  <th className="lg:px-16 ">{idx + 1}</th>
                   <td>{campaign.title}</td>
-                  <td className="hidden lg:block">{campaign.type}</td>
+                  <td>{campaign.type}</td>
                   <td>{campaign.amount}</td>
-                  <td className="hidden lg:block">{campaign.deadline}</td>
+                  <td>{campaign.deadline}</td>
                   <td>
                     <Link to={`/updateCampaign/${campaign._id}`}>
                       <button className="btn bg-gradient-to-r from-primary to-secondary text-white">

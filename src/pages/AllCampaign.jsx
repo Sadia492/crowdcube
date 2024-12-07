@@ -30,7 +30,7 @@ export default function AllCampaign() {
             fill="none"
             viewBox="0 0 200 200"
             version="1.1"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             xmlns:svgjs="http://svgjs.dev/svgjs"
             className="rotate-infinite"
           >
@@ -44,13 +44,13 @@ export default function AllCampaign() {
                 id="SvgjsLinearGradient1257"
               >
                 <stop
-                  stop-opacity=" 1"
-                  stop-color="rgba(136, 54, 119)"
+                  stopOpacity=" 1"
+                  stopColor="rgba(136, 54, 119)"
                   offset="0"
                 ></stop>
                 <stop
-                  stop-opacity=" 1"
-                  stop-color="rgba(255, 149, 140)"
+                  stopOpacity=" 1"
+                  stopColor="rgba(255, 149, 140)"
                   offset="1"
                 ></stop>
               </linearGradient>
@@ -63,7 +63,7 @@ export default function AllCampaign() {
             fill="none"
             viewBox="0 0 200 200"
             version="1.1"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             xmlns:svgjs="http://svgjs.dev/svgjs"
             className="rotate-infinite"
           >
@@ -77,13 +77,13 @@ export default function AllCampaign() {
                 id="SvgjsLinearGradient1257"
               >
                 <stop
-                  stop-opacity=" 1"
-                  stop-color="rgba(136, 54, 119)"
+                  stopOpacity=" 1"
+                  stopColor="rgba(136, 54, 119)"
                   offset="0"
                 ></stop>
                 <stop
-                  stop-opacity=" 1"
-                  stop-color="rgba(255, 149, 140)"
+                  stopOpacity=" 1"
+                  stopColor="rgba(255, 149, 140)"
                   offset="1"
                 ></stop>
               </linearGradient>
@@ -96,7 +96,7 @@ export default function AllCampaign() {
             fill="none"
             viewBox="0 0 200 200"
             version="1.1"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
             xmlns:svgjs="http://svgjs.dev/svgjs"
             className="rotate-infinite"
           >
@@ -110,13 +110,13 @@ export default function AllCampaign() {
                 id="SvgjsLinearGradient1257"
               >
                 <stop
-                  stop-opacity=" 1"
-                  stop-color="rgba(136, 54, 119)"
+                  stopOpacity=" 1"
+                  stopColor="rgba(136, 54, 119)"
                   offset="0"
                 ></stop>
                 <stop
-                  stop-opacity=" 1"
-                  stop-color="rgba(255, 149, 140)"
+                  stopOpacity=" 1"
+                  stopColor="rgba(255, 149, 140)"
                   offset="1"
                 ></stop>
               </linearGradient>
@@ -129,7 +129,7 @@ export default function AllCampaign() {
             onClick={handleSort}
             className="btn w-full md:w-[20%] bg-gradient-to-r from-primary to-secondary text-white"
           >
-            Sort
+            Sort By Amount (DSC)
           </button>
         </div>
       </div>
@@ -137,26 +137,26 @@ export default function AllCampaign() {
         <table className="table">
           {/* head */}
           <thead className="bg-[url('https://i.ibb.co.com/7KqmCf5/triangles-1430105-1280.jpg')] bg-no-repeat bg-left bg-cover font-extrabold text-white">
-            <tr className="text-lg">
-              <th className="hidden sm:block"></th>
+            <tr className="text-lg text-center">
+              <th className="text-center">#</th>
 
-              <th className="lg:p-4">Campaign Title</th>
-              <th className="hidden lg:block w-full h-full">Campaign Type</th>
+              <th>Campaign Title</th>
+              <th>Campaign Type</th>
               <th>Amount</th>
-              <th className="hidden lg:block">Deadline</th>
+              <th>Deadline</th>
 
               <th>Action</th>
             </tr>
           </thead>
           <tbody className="bg-gradient-to-br from-secondary font-medium to-primary text-white">
             {data.map((campaign, idx) => (
-              <tr key={campaign._id} className="hover:text-primary">
-                <th className="lg:px-16 hidden sm:block">{idx + 1}</th>
+              <tr key={campaign._id} className="hover:text-primary text-center">
+                <th className="px-16 ">{idx + 1}</th>
 
                 <td>{campaign.title}</td>
-                <td className="hidden lg:block">{campaign.type}</td>
+                <td>{campaign.type}</td>
                 <td>{campaign.amount}</td>
-                <td className="hidden lg:block">{campaign.deadline}</td>
+                <td>{campaign.deadline}</td>
                 <td>
                   <Link
                     className="btn bg-gradient-to-r from-primary to-secondary text-white"
