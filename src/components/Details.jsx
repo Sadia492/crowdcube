@@ -52,7 +52,7 @@ export default function Details() {
   };
 
   return (
-    <div className="flex lg:flex-row flex-col bg-base-100 gap-8 justify-center items-center shadow-xl w-11/12 mx-auto mt-24">
+    <div className="flex lg:flex-row flex-col rounded-3xl mb-20 bg-base-100 gap-8 justify-center items-center shadow-xl w-11/12 mx-auto mt-20">
       <Helmet>
         <title>Crowdcube | Details</title>
       </Helmet>
