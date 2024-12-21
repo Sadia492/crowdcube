@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -11,6 +11,7 @@ export default function MainLayout() {
   const { user } = useContext(authContext);
   return (
     <div className="">
+      <ScrollRestoration />
       <Navbar></Navbar>
       <div className="min-h-[calc(100vh-220px)]">
         <Outlet></Outlet>

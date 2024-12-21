@@ -10,6 +10,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 export const authContext = createContext();
 
@@ -48,9 +49,23 @@ export default function AuthProvider({ children }) {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
+      if (currentUser?.email) {
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_URL}/jwt`,
+          { email: currentUser?.email },
+          { withCredentials: true }
+        );
+        console.log(data);
+        setLoading(false);
+      } else {
+        const { data } = await axios.get(`${import.meta.env.VITE_URL}/logout`, {
+          withCredentials: true,
+        });
+        console.log(data);
+        setLoading(false);
+      }
     });
     return () => unsubscribe();
   }, []);

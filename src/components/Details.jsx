@@ -4,13 +4,15 @@ import Swal from "sweetalert2";
 import { format } from "date-fns";
 import { authContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export default function Details() {
   const campaign = useLoaderData();
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(authContext);
   const { _id, image, title, description, type, amount, deadline } = campaign;
   const { displayName: name, email } = user;
-  const data = {
+  const formData = {
     image,
     title,
     description,
@@ -21,27 +23,18 @@ export default function Details() {
     email,
   };
 
-  const handleDonate = () => {
+  const handleDonate = async () => {
     const currentTime = format(new Date(), "yyyy-MM-dd");
 
-    if (currentTime <= data.deadline) {
-      fetch("https://crowdcube-server-sand.vercel.app/donations", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            Swal.fire({
-              icon: "success",
-              title: "Donation Successful",
-              text: "You have Successfully donated in this campaign.",
-            });
-          }
+    if (currentTime <= formData.deadline) {
+      const { data } = await axiosSecure.post("/donations", formData);
+      if (data.insertedId) {
+        Swal.fire({
+          icon: "success",
+          title: "Donation Successful",
+          text: "You have Successfully donated in this campaign.",
         });
+      }
     } else {
       Swal.fire({
         icon: "error",

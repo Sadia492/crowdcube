@@ -3,16 +3,18 @@ import { authContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export default function UpdateCampaign() {
   const { user } = useContext(authContext);
   const loadedData = useLoaderData();
+  const axiosSecure = useAxiosSecure();
   const { _id, image, title, description, type, amount, deadline } = loadedData;
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const form = e.target;
-    const data = {
+    const formData = {
       image: form.image.value,
       title: form.title.value,
       description: form.description.value,
@@ -20,24 +22,14 @@ export default function UpdateCampaign() {
       amount: form.amount.value,
       deadline: form.deadline.value,
     };
-
-    fetch(`https://crowdcube-server-sand.vercel.app/campaigns/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          Swal.fire({
-            icon: "success",
-            title: "Update Successful",
-            text: "You have Successfully updated the campaign information.",
-          });
-        }
+    const { data } = await axiosSecure.put(`/campaigns/${_id}`, formData);
+    if (data.modifiedCount) {
+      Swal.fire({
+        icon: "success",
+        title: "Update Successful",
+        text: "You have Successfully updated the campaign information.",
       });
+    }
   };
 
   return (

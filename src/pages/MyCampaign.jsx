@@ -3,22 +3,38 @@ import { authContext } from "../AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import axios from "axios";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import Loading from "../components/Loading";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export default function MyCampaign() {
   const { user } = useContext(authContext);
-  const [userCampaigns, setUserCampaigns] = useState();
+  const axiosSecure = useAxiosSecure();
+  const queryClient = useQueryClient();
 
-  useEffect(() => {
-    if (user?.email) {
-      fetch(
-        `https://crowdcube-server-sand.vercel.app/user-campaigns/${user?.email}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          setUserCampaigns(data);
-        });
-    }
-  }, [user]);
+  const { data: userCampaigns, isLoading } = useQuery({
+    queryKey: ["campaigns"],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`/user-campaigns/${user?.email}`);
+      return data;
+    },
+  });
+
+  // Delete campaign mutation
+  const deleteCampaign = useMutation({
+    mutationFn: async (id) => {
+      return await axiosSecure.delete(`/campaigns/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["campaigns", user?.email]);
+      Swal.fire("Deleted!", "Your campaign has been deleted.", "success");
+    },
+    onError: (error) => {
+      Swal.fire("Error!", error.message, "error");
+    },
+  });
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -30,23 +46,7 @@ export default function MyCampaign() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://crowdcube-server-sand.vercel.app/campaigns/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success",
-              });
-              const remaining = userCampaigns.filter(
-                (campaign) => campaign._id !== id
-              );
-              setUserCampaigns(remaining);
-            }
-          });
+        deleteCampaign.mutate(id);
       }
     });
   };
@@ -165,6 +165,7 @@ export default function MyCampaign() {
         </svg>
       </div>
       <div className="overflow-x-auto  lg:w-11/12 mx-auto mt-8">
+        {/* {isLoading && <Loading></Loading>} */}
         <table className="table">
           {/* head */}
           <thead className="bg-[url('https://i.ibb.co.com/7KqmCf5/triangles-1430105-1280.jpg')] bg-no-repeat bg-left bg-cover font-extrabold text-white">
@@ -179,34 +180,30 @@ export default function MyCampaign() {
             </tr>
           </thead>
           <tbody className="bg-gradient-to-br from-secondary font-medium to-primary text-white">
-            {userCampaigns &&
-              userCampaigns.map((campaign, idx) => (
-                <tr
-                  key={campaign._id}
-                  className="hover:text-primary text-center"
-                >
-                  <th className="lg:px-16 ">{idx + 1}</th>
-                  <td>{campaign.title}</td>
-                  <td>{campaign.type}</td>
-                  <td>{campaign.amount}</td>
-                  <td>{campaign.deadline}</td>
-                  <td>
-                    <Link to={`/updateCampaign/${campaign._id}`}>
-                      <button className="btn bg-gradient-to-r from-primary to-secondary text-white">
-                        Update
-                      </button>
-                    </Link>
-                  </td>
-                  <td>
-                    <button
-                      onClick={() => handleDelete(campaign._id)}
-                      className="btn bg-gradient-to-r from-primary to-secondary text-white"
-                    >
-                      Delete
+            {userCampaigns?.map((campaign, idx) => (
+              <tr key={campaign._id} className="hover:text-primary text-center">
+                <th className="lg:px-16 ">{idx + 1}</th>
+                <td>{campaign.title}</td>
+                <td>{campaign.type}</td>
+                <td>{campaign.amount}</td>
+                <td>{campaign.deadline}</td>
+                <td>
+                  <Link to={`/updateCampaign/${campaign._id}`}>
+                    <button className="btn bg-gradient-to-r from-primary to-secondary text-white">
+                      Update
                     </button>
-                  </td>
-                </tr>
-              ))}
+                  </Link>
+                </td>
+                <td>
+                  <button
+                    onClick={() => handleDelete(campaign._id)}
+                    className="btn bg-gradient-to-r from-primary to-secondary text-white"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
 
             {/* row 2 */}
           </tbody>

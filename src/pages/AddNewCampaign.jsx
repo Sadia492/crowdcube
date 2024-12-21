@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 export default function AddNewCampaign() {
   const { user } = useContext(authContext);
-  const handleSubmit = (e) => {
+  const axiosSecure = useAxiosSecure();
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
@@ -16,7 +18,7 @@ export default function AddNewCampaign() {
     const deadline = form.deadline.value;
     const email = form.email.value;
     const name = form.name.value;
-    const data = {
+    const formData = {
       image,
       title,
       description,
@@ -26,24 +28,14 @@ export default function AddNewCampaign() {
       email,
       name,
     };
-
-    fetch("https://crowdcube-server-sand.vercel.app/campaigns", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Added Campaign",
-            text: "Successfully added the campaign",
-            icon: "success",
-          });
-        }
+    const { data } = await axiosSecure.post("/campaigns", formData);
+    if (data.insertedId) {
+      Swal.fire({
+        title: "Added Campaign",
+        text: "Successfully added the campaign",
+        icon: "success",
       });
+    }
     form.reset();
   };
   return (
