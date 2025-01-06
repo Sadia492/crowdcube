@@ -6,9 +6,20 @@ import AllCard from "../components/AllCard";
 
 export default function AllCampaign() {
   const loadedData = useLoaderData();
+  const [sort, setSort] = useState("asc"); // Default sorting order
   const [data, setData] = useState(loadedData);
-  const handleSort = () => {
-    const sortedData = [...data].sort((a, b) => b.amount - a.amount);
+  const handleSort = (e) => {
+    const sortOrder = e.target.value;
+    setSort(sortOrder);
+
+    const sortedData = [...data].sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a.amount - b.amount;
+      } else if (sortOrder === "dsc") {
+        return b.amount - a.amount;
+      }
+      return 0;
+    });
     setData(sortedData);
   };
 
@@ -127,53 +138,28 @@ export default function AllCampaign() {
         </div>
 
         <div className="text-right w-11/12 mx-auto">
-          <button
+          {/* <button
             onClick={handleSort}
             className="btn w-full md:w-[20%] bg-gradient-to-r from-primary to-secondary text-white"
           >
             Sort By Amount (DSC)
-          </button>
+          </button> */}
+          <select
+            className="select border-primary border-2 w-full max-w-xs"
+            defaultValue={"Sort By"}
+            value={sort}
+            onChange={handleSort}
+          >
+            <option value="">Sort By?</option>
+            <option value="asc">Ascending</option>
+            <option value="dsc">Descending</option>
+          </select>
         </div>
       </div>
       <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 gap-6 w-11/12 mx-auto mt-8">
         {data?.map((campaign) => (
           <AllCard key={campaign._id} campaign={campaign}></AllCard>
         ))}
-        {/* <table className="table">
-          
-          <thead className="bg-[url('https://i.ibb.co.com/7KqmCf5/triangles-1430105-1280.jpg')] bg-no-repeat bg-left bg-cover font-extrabold text-white">
-            <tr className="text-lg text-center">
-              <th className="text-center">#</th>
-
-              <th>Campaign Title</th>
-              <th>Campaign Type</th>
-              <th>Amount</th>
-              <th>Deadline</th>
-
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody className="bg-gradient-to-br from-secondary font-medium to-primary text-white">
-            {data.map((campaign, idx) => (
-              <tr key={campaign._id} className="hover:text-primary text-center">
-                <th className="px-16 ">{idx + 1}</th>
-
-                <td>{campaign.title}</td>
-                <td>{campaign.type}</td>
-                <td>{campaign.amount}</td>
-                <td>{campaign.deadline}</td>
-                <td>
-                  <Link
-                    className="btn bg-gradient-to-r from-primary to-secondary text-white"
-                    to={`/campaign/${campaign._id}`}
-                  >
-                    See More
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table> */}
       </div>
     </div>
   );

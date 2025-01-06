@@ -39,7 +39,7 @@ export default function AddNewCampaign() {
     form.reset();
   };
   return (
-    <div className="mt-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">
+    <div className="pt-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">
       <Helmet>
         <title>Crowdcube | Add Campaign</title>
       </Helmet>

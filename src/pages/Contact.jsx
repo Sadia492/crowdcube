@@ -24,7 +24,7 @@ export default function Contact() {
 
   return (
     <div className=" flex flex-col justify-center  bg-gray-50">
-      <div className="  bg-white shadow-lg w-11/12 mx-auto rounded-lg flex justify-center items-center p-8">
+      <div className="  bg-white shadow-lg w-11/12 mx-auto rounded-lg flex justify-center items-center flex-col-reverse lg:flex-row p-8">
         <div className=" w-full flex-1">
           <h2 className="text-3xl font-semibold text-gray-800 mb-4">
             Contact Us
@@ -51,7 +51,7 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="mt-2 block w-full rounded-lg border border-gray-300 shadow-sm p-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-secondary"
+                  className="mt-2 block w-full rounded-lg border border-gray-300 shadow-sm p-3 focus:outline-none focus:ring-2 focus:ring-secondary"
                   required
                 />
               </div>
@@ -70,7 +70,7 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="mt-2 block w-full rounded-lg border border-gray-300 shadow-sm p-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-secondary"
+                  className="mt-2 block w-full rounded-lg border border-gray-300 shadow-sm p-3 focus:outline-none focus:ring-2 focus:ring-secondary"
                   required
                 />
               </div>
@@ -89,7 +89,7 @@ export default function Contact() {
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
-                className="mt-2 block w-full rounded-lg border border-gray-300 shadow-sm p-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-secondary"
+                className="mt-2 block w-full rounded-lg border border-gray-300 shadow-sm p-3  focus:outline-none focus:ring-2 focus:ring-secondary"
                 rows="6"
                 required
               ></textarea>

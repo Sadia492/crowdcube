@@ -3,6 +3,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className=" bg-neutral text-neutral-content">
@@ -56,43 +57,29 @@ export default function Footer() {
             <nav>
               <h2 className="font-bold text-xl mb-4">Donate</h2>
               <ul className="">
-                <a href="">Education</a>
-                <a href="" className="ml-2">
-                  Social
-                </a>
+                <Link to="/">Home</Link>
+                <Link to="/campaigns" className="ml-2">
+                  All Campaigns
+                </Link>
                 <br />
-                <a href="">Medicine</a>
-                <a href="" className="ml-2">
-                  Disaster
-                </a>
+                <Link to="/login">Login</Link>
+                <Link to="/register" className="ml-2">
+                  Register
+                </Link>
               </ul>
             </nav>
             <nav>
               <h2 className="font-bold text-xl mb-4">Help</h2>
               <ul className="">
-                <a href="">FAQ</a>
-                <a href="" className="ml-2">
-                  PrivacyPolicy
-                </a>
+                <Link to="/">Home</Link>
+
+                <Link to="/about" className="ml-2">
+                  About Us
+                </Link>
                 <br />
-                <a href="">Accessibility</a>
-                <a href="" className="ml-2">
+                <Link to="/contact" className="">
                   Contact Us
-                </a>
-              </ul>
-            </nav>
-            <nav>
-              <h2 className="font-bold text-xl mb-4">Company</h2>
-              <ul className="">
-                <a href="">About Us</a>
-                <a href="" className="ml-2">
-                  Careers
-                </a>
-                <br />
-                <a href="">Services</a>
-                <a href="" className="ml-2">
-                  Pricing
-                </a>
+                </Link>
               </ul>
             </nav>
           </div>

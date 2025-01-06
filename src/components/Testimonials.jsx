@@ -8,6 +8,8 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { FaQuoteLeft } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Testimonials() {
   const [reviews, setReviews] = useState([]);
@@ -18,8 +20,11 @@ export default function Testimonials() {
     };
     fetchData();
   }, []);
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: true }); // You can adjust the duration or other options
+  }, []);
   return (
-    <div className="w-11/12 mx-auto my-12">
+    <div className="w-11/12 mx-auto my-12" data-aos="fade-up">
       <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text mt-12">
         {" "}
         <Typewriter

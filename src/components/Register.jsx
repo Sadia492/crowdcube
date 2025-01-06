@@ -117,7 +117,7 @@ export default function Register() {
           </p>
         </form>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 hidden lg:flex">
         <img src={imgSignUp} className="w-full" alt="" />
       </div>
     </div>

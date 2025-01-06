@@ -107,7 +107,7 @@ export default function Login() {
         <div></div>
       </div>
       {/* <div className="flex-1"></div> */}
-      <div className="flex-1">
+      <div className="flex-1 hidden lg:flex">
         <img src={imgLogin} className="w-full" alt="" />
       </div>
     </div>

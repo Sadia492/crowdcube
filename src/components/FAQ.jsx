@@ -9,7 +9,7 @@ export default function FAQ() {
     Aos.init({ duration: 1000, once: true }); // You can adjust the duration or other options
   }, []);
   return (
-    <div className="w-11/12 mx-auto mt-12" data-aos="fade-up">
+    <div id="faq" className="w-11/12 mx-auto mt-12" data-aos="fade-up">
       <h2 className="text-3xl font-bold mb-2 text-center bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
         {" "}
         <Typewriter

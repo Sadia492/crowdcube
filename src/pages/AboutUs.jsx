@@ -2,11 +2,11 @@ import React from "react";
 
 export default function AboutUs() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-12">
-      <div className="w-11/12 mx-auto bg-white shadow-lg rounded-lg p-8">
+    <div className="min-h-screen  pt-12">
+      <div className="w-11/12 mx-auto  shadow-lg rounded-lg p-8">
         {/* Title */}
-        <h2 className="text-3xl font-semibold text-gray-800 mb-4">About Us</h2>
-        <p className="text-lg text-gray-600 mb-8">
+        <h2 className="text-3xl font-semibold mb-4">About Us</h2>
+        <p className="text-lg  mb-8">
           We are a community-driven platform committed to helping innovative
           projects succeed through crowdfunding. Our mission is to connect
           passionate individuals with projects that have the power to change the
@@ -18,7 +18,7 @@ export default function AboutUs() {
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">
             Our Mission
           </h3>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text">
             At [Company Name], our mission is to empower entrepreneurs,
             creators, and organizations by providing them with the resources
             they need to bring their ideas to life. We aim to create a thriving
@@ -29,10 +29,8 @@ export default function AboutUs() {
 
         {/* Our Team */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-            Meet the Team
-          </h3>
-          <p className="text-lg text-gray-600 mb-8">
+          <h3 className="text-2xl font-semibold text mb-4">Meet the Team</h3>
+          <p className="text-lg text mb-8">
             Our team is made up of passionate individuals who believe in the
             power of collaboration and innovation. We are driven by a shared
             vision to make a positive impact through the projects we support.
@@ -47,8 +45,8 @@ export default function AboutUs() {
                 alt="Team Member"
                 className="w-32 h-32 rounded-full mx-auto mb-4"
               />
-              <h4 className="text-xl font-semibold text-gray-800">John Doe</h4>
-              <p className="text-gray-600">Founder & CEO</p>
+              <h4 className="text-xl font-semibold text">John Doe</h4>
+              <p className="text">Founder & CEO</p>
             </div>
 
             {/* Team Member 2 */}
@@ -58,10 +56,8 @@ export default function AboutUs() {
                 alt="Team Member"
                 className="w-32 h-32 rounded-full mx-auto mb-4"
               />
-              <h4 className="text-xl font-semibold text-gray-800">
-                Jane Smith
-              </h4>
-              <p className="text-gray-600">Co-Founder & CTO</p>
+              <h4 className="text-xl font-semibold text">Jane Smith</h4>
+              <p className="text">Co-Founder & CTO</p>
             </div>
 
             {/* Team Member 3 */}
@@ -71,20 +67,16 @@ export default function AboutUs() {
                 alt="Team Member"
                 className="w-32 h-32 rounded-full mx-auto mb-4"
               />
-              <h4 className="text-xl font-semibold text-gray-800">
-                Alex Johnson
-              </h4>
-              <p className="text-gray-600">Community Manager</p>
+              <h4 className="text-xl font-semibold text">Alex Johnson</h4>
+              <p className="text">Community Manager</p>
             </div>
           </div>
         </div>
 
         {/* Values */}
         <div className="mb-12">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-            Our Core Values
-          </h3>
-          <ul className="list-inside list-disc text-lg text-gray-600">
+          <h3 className="text-2xl font-semibold text mb-4">Our Core Values</h3>
+          <ul className="list-inside list-disc text-lg text">
             <li>
               <strong>Integrity:</strong> We prioritize transparency and honesty
               in all of our interactions.
@@ -106,7 +98,7 @@ export default function AboutUs() {
 
         {/* Contact Us Section */}
         <div className="text-center mt-12">
-          <p className="text-lg text-gray-600 mb-4">
+          <p className="text-lg text mb-4">
             Interested in learning more about us or partnering with us?{" "}
             <a href="/contact" className="text-blue-600 hover:text-blue-700">
               Contact Us

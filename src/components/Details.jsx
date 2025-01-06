@@ -10,7 +10,7 @@ export default function Details() {
   const campaign = useLoaderData();
   const axiosSecure = useAxiosSecure();
   console.log(campaign);
-  // const { user } = useContext(authContext);
+
   const {
     _id,
     image,
@@ -21,8 +21,12 @@ export default function Details() {
     deadline,
     name,
     email,
+    qualities,
+    impact,
+    organizer_bio,
+    location,
   } = campaign || {};
-  // const { displayName: name, email } = user || {};
+
   const formData = {
     image,
     title,
@@ -56,47 +60,81 @@ export default function Details() {
   };
 
   return (
-    <div className="flex lg:flex-row flex-col rounded-3xl mb-20 bg-base-100 gap-8 justify-center items-center shadow-xl w-11/12 mx-auto mt-20">
+    <div>
       <Helmet>
         <title>Crowdcube | Details</title>
       </Helmet>
-      <figure className="flex-1 p-4">
-        <img className="w-full rounded-3xl" src={image} alt="Album" />
-      </figure>
-      <div className="flex-1 p-4">
-        <h2 className="text-3xl font-bold ">{title}</h2>
-        <p className=" text-gray-500 mb-6 mt-2">{description}</p>
-
-        <p>
-          <span className="font-bold">Minimum donation amount: </span>
-          {amount}$
-        </p>
-
-        <div>
-          <h3 className="font-bold text-lg mt-4">Other Info:</h3>
+      <div className="flex lg:flex-row flex-col rounded-3xl mb-20 bg-base-100 gap-8 justify-center items-center shadow-xl w-11/12 mx-auto mt-20">
+        <figure className="flex-1 p-4">
+          <img className="w-full rounded-3xl" src={image} alt="Album" />
+        </figure>
+        <div className="flex-1 p-4">
+          <h2 className="text-3xl font-bold">{title}</h2>
           <p>
-            <span className="font-bold">Added By: </span>
-            {name}
+            <span className="font-bold">Minimum donation amount: </span>
+            {amount}$
           </p>
-          <p>
-            <span className="font-bold">User's Email: </span>
-            {email}
-          </p>
-        </div>
 
-        <div className="space-x-2 my-4">
-          <div className="badge bg-primary text-white p-3">{type}</div>
-          <div className="badge bg-secondary text-white p-3">
-            Deadline: {deadline}
+          <div>
+            <h3 className="font-bold text-lg mt-4">Other Info:</h3>
+            <p>
+              <span className="font-bold">Added By: </span>
+              {name}
+            </p>
+            <p>
+              <span className="font-bold">User's Email: </span>
+              {email}
+            </p>
+            <p>
+              <span className="font-bold">User's Bio: </span>
+              {organizer_bio}
+            </p>
+          </div>
+
+          <div className="space-x-2 my-4 flex flex-wrap">
+            <div className="badge bg-primary text-white p-3">{type}</div>
+            <div className="badge bg-secondary text-white p-3">
+              Deadline: {deadline}
+            </div>
+            <div className="badge bg-primary text-white p-3">
+              location: {location}
+            </div>
+          </div>
+
+          <div className="card-actions justify-start">
+            <button
+              onClick={handleDonate}
+              className="btn bg-gradient-to-r mt-3 from-primary to-secondary text-white"
+            >
+              Donate
+            </button>
           </div>
         </div>
-        <div className="card-actions justify-start">
-          <button
-            onClick={handleDonate}
-            className="btn bg-gradient-to-r mt-3 from-primary to-secondary text-white"
-          >
-            Donate
-          </button>
+      </div>
+
+      {/* Additional Fields Below the Card */}
+      <div className="w-11/12 mx-auto mt-8">
+        {/* Impact Section */}
+        <div className="bg-gray-50 p-6 rounded-lg mb-6">
+          <h3 className="text-xl font-bold mb-4"></h3>
+          <p className="text-gray-700 font-bold">{description}</p>
+        </div>
+        {/* Qualities Section */}
+        <div className="bg-gray-50 p-6 rounded-lg mb-6">
+          <h3 className="text-xl font-bold mb-4">
+            Key Qualities of the Campaign
+          </h3>
+          <p className="text-gray-700">
+            {qualities.map((quality) => (
+              <li>{quality}</li>
+            ))}
+          </p>
+        </div>
+
+        {/* Impact Section */}
+        <div className="bg-gray-50 p-6 rounded-lg mb-6">
+          <h3 className="text-xl font-bold mb-4">Impact of the Campaign</h3>
+          <p className="text-gray-700">{impact}</p>
         </div>
       </div>
     </div>
