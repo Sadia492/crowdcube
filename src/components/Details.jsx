@@ -9,9 +9,19 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 export default function Details() {
   const campaign = useLoaderData();
   const axiosSecure = useAxiosSecure();
-  const { user } = useContext(authContext);
-  const { _id, image, title, description, type, amount, deadline } = campaign;
-  const { displayName: name, email } = user;
+  // const { user } = useContext(authContext);
+  const {
+    _id,
+    image,
+    title,
+    description,
+    type,
+    amount,
+    deadline,
+    name,
+    email,
+  } = campaign;
+  // const { displayName: name, email } = user || {};
   const formData = {
     image,
     title,
@@ -60,6 +70,7 @@ export default function Details() {
           <span className="font-bold">Minimum donation amount: </span>
           {amount}$
         </p>
+
         <div>
           <h3 className="font-bold text-lg mt-4">Other Info:</h3>
           <p>
@@ -71,6 +82,7 @@ export default function Details() {
             {email}
           </p>
         </div>
+
         <div className="space-x-2 my-4">
           <div className="badge bg-primary text-white p-3">{type}</div>
           <div className="badge bg-secondary text-white p-3">

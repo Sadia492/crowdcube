@@ -9,7 +9,7 @@ export default function RunningCampaign({ runningCampaigns }) {
   }, []);
 
   return (
-    <div id="running" className="w-11/12 mx-auto" data-aos="fade-up">
+    <div id="running" className="w-11/12 mx-auto">
       <h2 className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text mt-12">
         {" "}
         <Typewriter

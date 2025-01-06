@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import imgSignUp from "../assets/Sign up-bro.png";
 
 export default function Register() {
   const { createUser, setUser, updateUser, setLoading } =
@@ -42,11 +43,11 @@ export default function Register() {
   };
 
   return (
-    <div className="flex justify-center items-center bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover mt-16 py-8">
+    <div className="flex justify-center items-center gap-8 px-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover mt-16 py-8">
       <Helmet>
         <title>Crowdcube | Register</title>
       </Helmet>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div className="card bg-base-100 w-full flex-1 shrink-0 shadow-2xl">
         <form onSubmit={handleRegister} className="card-body">
           <h2 className="font-bold text-center text-2xl">REGISTER NOW</h2>
           <div className="form-control">
@@ -115,6 +116,9 @@ export default function Register() {
             </Link>
           </p>
         </form>
+      </div>
+      <div className="flex-1">
+        <img src={imgSignUp} className="w-full" alt="" />
       </div>
     </div>
   );

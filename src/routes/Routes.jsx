@@ -38,11 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/campaign/:id",
-        element: (
-          <PrivateRoute>
-            <Details></Details>
-          </PrivateRoute>
-        ),
+        element: <Details></Details>,
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_URL}/campaigns/${params.id}`),
       },

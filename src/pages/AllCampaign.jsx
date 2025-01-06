@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
+import Card from "../components/Card";
+import AllCard from "../components/AllCard";
 
 export default function AllCampaign() {
   const loadedData = useLoaderData();
@@ -133,9 +135,12 @@ export default function AllCampaign() {
           </button>
         </div>
       </div>
-      <div className="overflow-x-auto w-11/12 mx-auto mt-8">
-        <table className="table">
-          {/* head */}
+      <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 gap-6 w-11/12 mx-auto mt-8">
+        {data?.map((campaign) => (
+          <AllCard key={campaign._id} campaign={campaign}></AllCard>
+        ))}
+        {/* <table className="table">
+          
           <thead className="bg-[url('https://i.ibb.co.com/7KqmCf5/triangles-1430105-1280.jpg')] bg-no-repeat bg-left bg-cover font-extrabold text-white">
             <tr className="text-lg text-center">
               <th className="text-center">#</th>
@@ -168,7 +173,7 @@ export default function AllCampaign() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table> */}
       </div>
     </div>
   );

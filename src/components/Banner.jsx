@@ -54,16 +54,23 @@ export default function Banner() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <Slider {...settings}>
         {slides.map((slide, index) => (
-          <div key={slide.id} className="relative">
-            <img
-              src={slide.image}
-              alt={`Slide ${slide.id}`}
-              className="w-full h-screen object-top object-cover"
-            />
-            <div className="absolute top-0 flex flex-col pt-16 justify-center items-start lg:pl-24 pl-6 h-screen text-white left-0 z-30 font-bold space-y-4">
+          <div key={slide.id} className="relative max-h-[calc(100vh-150px)]">
+            <div className="relative w-full ">
+              {/* Background Overlay */}
+              <div className="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
+
+              {/* Image */}
+              <img
+                src={slide.image}
+                alt={`Slide ${slide.id}`}
+                className="w-full h-screen object-top object-cover z-0"
+              />
+            </div>
+
+            <div className="absolute top-0 flex flex-col h-[calc(100vh-100px)] justify-center items-start lg:pl-24 pl-6 text-white left-0 z-30 font-bold space-y-4">
               <h1
                 className={`animate__animated ${
                   currentSlide === index

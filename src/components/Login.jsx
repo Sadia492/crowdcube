@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 import { FaGoogle } from "react-icons/fa";
+import imgLogin from "../assets/Tablet login-amico.png";
 export default function Login() {
   const { signInUser, setUser, signInWithGoogle, setLoading } =
     useContext(authContext);
@@ -40,11 +41,11 @@ export default function Login() {
   //     .finally(() => setLoading(false));
   // };
   return (
-    <div className="flex justify-center items-center mt-16 py-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">
+    <div className="flex justify-center items-center gap-20 px-20 mt-16 py-12 bg-[url('https://i.ibb.co.com/MsBQY5f/cool-background.png')] bg-no-repeat bg-cover">
       <Helmet>
         <title>Crowdcube | Login</title>
       </Helmet>
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div className="card bg-base-100 w-full flex-1 shrink-0 shadow-2xl">
         <div className="text-center btn bg-gradient-to-r from-primary to-secondary text-white">
           <button
             onClick={() => signInWithGoogle(navigate)}
@@ -103,6 +104,11 @@ export default function Login() {
             </Link>
           </p>
         </form>
+        <div></div>
+      </div>
+      {/* <div className="flex-1"></div> */}
+      <div className="flex-1">
+        <img src={imgLogin} className="w-full" alt="" />
       </div>
     </div>
   );
