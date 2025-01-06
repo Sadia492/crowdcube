@@ -3,6 +3,8 @@ import Card from "./Card";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Typewriter } from "react-simple-typewriter";
+import AllCard from "./AllCard";
+import { Link } from "react-router-dom";
 export default function RunningCampaign({ runningCampaigns }) {
   useEffect(() => {
     Aos.init({ duration: 1000, once: true }); // You can adjust the duration or other options
@@ -27,11 +29,16 @@ export default function RunningCampaign({ runningCampaigns }) {
         need. Together, we can bring warmth and hope to the most vulnerable
         communities.
       </p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {runningCampaigns.map((campaign) => (
-          <Card key={campaign._id} campaign={campaign}></Card>
+          <AllCard key={campaign._id} campaign={campaign}></AllCard>
         ))}
       </div>
+      <Link to="/campaigns" className="flex justify-center items-center my-8">
+        <button className="btn bg-gradient-to-r from-primary to-secondary text-white">
+          View All
+        </button>
+      </Link>
     </div>
   );
 }

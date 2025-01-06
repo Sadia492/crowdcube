@@ -9,6 +9,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 export default function Details() {
   const campaign = useLoaderData();
   const axiosSecure = useAxiosSecure();
+  console.log(campaign);
   // const { user } = useContext(authContext);
   const {
     _id,
@@ -20,7 +21,7 @@ export default function Details() {
     deadline,
     name,
     email,
-  } = campaign;
+  } = campaign || {};
   // const { displayName: name, email } = user || {};
   const formData = {
     image,

@@ -5,6 +5,8 @@ import { useLoaderData } from "react-router-dom";
 import FAQ from "../components/FAQ";
 import Features from "../components/Features";
 import { Helmet } from "react-helmet";
+import Testimonials from "../components/Testimonials";
+import Newsletter from "../components/Newsletter";
 
 export default function Home() {
   const runningCampaigns = useLoaderData();
@@ -72,6 +74,8 @@ export default function Home() {
       <RunningCampaign runningCampaigns={runningCampaigns}></RunningCampaign>
       <Features></Features>
       <FAQ></FAQ>
+      <Testimonials></Testimonials>
+      <Newsletter></Newsletter>
     </div>
   );
 }

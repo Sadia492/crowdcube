@@ -13,8 +13,8 @@ export default function AllCard({ campaign }) {
         <div className="card-body pt-0 ">
           <h2 className="card-title">{title}</h2>
           <div className="flex justify-between">
-            <p className="font-medium text-primary text-lg">{amount}$</p>
-            <div className="badge bg-primary text-white ml-auto">{type}</div>
+            <p className="font-medium">{description.substring(0, 80)}...</p>
+            {/* <div className="badge bg-primary text-white ml-auto">{type}</div> */}
           </div>
           <Link to={`/campaign/${_id}`}>
             <button className="btn bg-gradient-to-r from-primary to-secondary text-white">

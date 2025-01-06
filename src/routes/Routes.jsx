@@ -11,6 +11,8 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Details from "../components/Details";
 import UpdateCampaign from "../components/UpdateCampaign";
 import ErrorPage from "../components/ErrorPage";
+import Contact from "../pages/Contact";
+import AboutUs from "../pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +67,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/about",
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/updateCampaign/:id",
