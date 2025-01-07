@@ -1,5 +1,5 @@
 import React from "react";
-import imgAbout from "../assets/About us page-pana.png";
+import imgAbout from "../assets/About us page-pana (1).png";
 
 export default function AboutUs() {
   return (
