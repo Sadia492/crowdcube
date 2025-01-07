@@ -1,9 +1,13 @@
 import React from "react";
+import imgAbout from "../assets/About us page-pana.png";
 
 export default function AboutUs() {
   return (
-    <div className="min-h-screen  pt-12">
+    <div className="min-h-screen pt-12">
       <div className="w-11/12 mx-auto  shadow-lg rounded-lg p-8">
+        <div className="w-full">
+          <img src={imgAbout} className="w-full" alt="" />
+        </div>
         {/* Title */}
         <h2 className="text-3xl font-semibold mb-4">About Us</h2>
         <p className="text-lg  mb-8">

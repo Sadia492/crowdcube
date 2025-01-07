@@ -31,20 +31,19 @@ export default function Navbar() {
       <NavLink to="/campaigns">
         <li>All Campaign</li>
       </NavLink>
-
-      <div
-        className={`flex lg:flex-row flex-col gap-4 ${!user ? "hidden" : ""}`}
-      >
-        <NavLink to=" /addCampaign">
-          <li>Add New Campaign</li>
-        </NavLink>
-        <NavLink to="/myCampaign">
-          <li>My Campaign</li>
-        </NavLink>
-        <NavLink to="/myDonations">
-          <li>My Donation</li>
-        </NavLink>
-      </div>
+      {user && (
+        <>
+          <NavLink to=" /addCampaign">
+            <li>Add New Campaign</li>
+          </NavLink>
+          <NavLink to="/myCampaign">
+            <li>My Campaign</li>
+          </NavLink>
+          <NavLink to="/myDonations">
+            <li>My Donation</li>
+          </NavLink>
+        </>
+      )}
       <NavLink to="/about">
         <li>About Us</li>
       </NavLink>
