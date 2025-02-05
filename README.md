@@ -1,5 +1,7 @@
 # Crowdcube
 
+![Crowdcube Banner](https://i.ibb.co.com/spLN7tqX/Screenshot-2025-01-04-135749.png) 
+
 ## Project Overview
 
 Crowdcube is a crowdfunding platform where individuals and organizations can raise money for various projects, ideas, or causes by inviting others to contribute financially. These projects can range from personal needs (like medical expenses) to creative ideas (such as making a film or app), and startups (like launching a new product).
